@@ -1,0 +1,12 @@
+{
+  "name": "orchestratexr",
+  "displayName": "OrchestrateXR",
+  "version": "1.0.0",
+  "description": "Build and run immersive training in OrchestrateXR from Cursor: Experiences, AI Characters and Threads, Courses, Assets, and Guides, with step-by-step skills for each job.",
+  "author": {
+    "name": "OrchestrateXR",
+    "email": "support@orchestratexr.com"
+  },
+  "license": "MIT",
+  "keywords": ["xr", "vr", "training", "immersive-learning", "ai-characters", "simulation", "lms"]
+}

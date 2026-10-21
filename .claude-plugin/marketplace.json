@@ -1,0 +1,27 @@
+{
+  "name": "orchestratexr",
+  "owner": {
+    "name": "OrchestrateXR",
+    "email": "support@orchestratexr.com",
+    "url": "https://orchestratexr.com"
+  },
+  "description": "The official OrchestrateXR plugin: the OrchestrateXR MCP server plus the skills that teach your assistant how the work is done.",
+  "plugins": [
+    {
+      "name": "orchestratexr",
+      "source": "./",
+      "description": "Build and run immersive training in OrchestrateXR from your AI assistant: Experiences, AI Characters and Threads, Courses, Assets, and Guides, with step-by-step skills for each job.",
+      "version": "1.0.0",
+      "author": {
+        "name": "OrchestrateXR",
+        "email": "support@orchestratexr.com",
+        "url": "https://orchestratexr.com"
+      },
+      "homepage": "https://app.orchestratexr.com/guides/orchestratexr/connecting-ai-assistants",
+      "repository": "https://github.com/AccessVR/AgentPlugin",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["xr", "vr", "training", "immersive-learning", "ai-characters", "simulation", "lms"]
+    }
+  ]
+}

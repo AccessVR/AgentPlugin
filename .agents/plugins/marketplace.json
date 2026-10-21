@@ -1,0 +1,20 @@
+{
+  "name": "orchestratexr",
+  "interface": {
+    "displayName": "OrchestrateXR"
+  },
+  "plugins": [
+    {
+      "name": "orchestratexr",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/AccessVR/AgentPlugin.git"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

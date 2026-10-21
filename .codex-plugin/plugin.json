@@ -1,0 +1,32 @@
+{
+  "name": "orchestratexr",
+  "version": "1.0.0",
+  "description": "Build and run immersive training in OrchestrateXR from Codex: Experiences, AI Characters and Threads, Courses, Assets, and Guides, with step-by-step skills for each job.",
+  "author": {
+    "name": "OrchestrateXR",
+    "email": "support@orchestratexr.com",
+    "url": "https://orchestratexr.com"
+  },
+  "homepage": "https://app.orchestratexr.com/guides/orchestratexr/connecting-ai-assistants",
+  "repository": "https://github.com/AccessVR/AgentPlugin",
+  "license": "MIT",
+  "keywords": ["xr", "vr", "training", "immersive-learning", "ai-characters", "simulation", "lms"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "OrchestrateXR",
+    "shortDescription": "Immersive training: Experiences, AI Characters, Courses",
+    "longDescription": "Build and run immersive training in OrchestrateXR: 360° Experiences, AI Characters and the Threads that score them, Courses, Assets, and Guides. The skills give Codex the sequence for each job, so it runs the right tools in the right order.",
+    "developerName": "OrchestrateXR",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://orchestratexr.com",
+    "privacyPolicyURL": "https://orchestratexr.com/privacy-policy/",
+    "termsOfServiceURL": "https://orchestratexr.com/terms-of-service/",
+    "defaultPrompt": [
+      "What Experiences and Characters do we have?",
+      "Build a two-scene Experience with a question in each scene",
+      "How did learners do in the onboarding Course this week?"
+    ]
+  }
+}
