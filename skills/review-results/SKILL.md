@@ -87,9 +87,10 @@ finds Conversations, newest first. `creator_id` is the person who took part
 `participant_name`, and `goals`: the Goals reached, the ones still on the
 learner's list, and a count of hidden Goals not yet reached.
 
-A Session doesn't list its Conversations. To find the one behind a run, list
-the person's Conversations with that Character and match the time to the
-Session's `started_at`.
+A Session records the Conversation that ended its run. When that run had
+Goals, `get-session-tool {id}` names each step's Conversation as
+`conversation_id` in its `goals`. Otherwise, list the person's Conversations
+with that Character and match the time to the Session's `started_at`.
 
 ## 5. Explain a score
 

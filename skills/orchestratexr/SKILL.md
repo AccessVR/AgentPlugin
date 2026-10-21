@@ -64,7 +64,9 @@ decide what it reaches. Read this once, then the guide for the job.
   `access.can_author_content` says whether they can create content there.
 - Create tools take `organization` (id or exact name). If the person belongs to
   more than one organization and hasn't said which, ask, then pass it on every
-  create in the job. Without it, the create is refused.
+  create in the job. Without it, the create is refused, except
+  `create-project-tool`, which puts the Project in the organization the
+  person is working in.
 - List tools span every organization the person belongs to unless you pass
   `organization`.
 
