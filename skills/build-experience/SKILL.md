@@ -98,7 +98,7 @@ The problems quote editor buttons. Fix them with these tools instead:
 | A hotspot has no action | Send the layer's complete hotspot list with `update-layer-tool`, giving that hotspot an action. |
 | Open URL is set but the address is missing | Give the action a `url`. |
 | A question layer has no questions, or a question has no answers | Add them with `update-layer-tool`, or delete the layer. |
-| An asset is not ready for publishing | Wait for it to process (`get-asset-tool {id}` until `state` is `processed`). If it failed, swap in another asset. |
+| An asset is not ready for publishing | Wait for it to process (`get-asset-tool {id}` until `state` is `processed`). If it failed, retry it with `retry-asset-processing-tool {id}`, or swap in another asset. |
 
 ## Change an existing Experience
 

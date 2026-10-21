@@ -46,8 +46,8 @@ Images are refused.
    `get-skill-tool {name: "add-assets"}` for uploading, or find one already
    there with `list-assets-tool {search}`.
 2. Wait for the file to finish processing. Poll `get-asset-tool {id}` until its
-   `state` is `processed` or `ready`. A file that failed has to be uploaded
-   again.
+   `state` is `processed` or `ready`. If it failed, follow "When processing
+   fails" in the add-assets skill.
 3. Confirm the file, and that the Guide will live in the organization. Then
    `create-guide-from-asset-tool {organization?, asset_id}`.
 4. The Guide comes back in state `processing`. Call

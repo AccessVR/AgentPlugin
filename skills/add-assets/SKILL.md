@@ -103,7 +103,22 @@ rather than polling for a long time in silence.
 | `uploading`, `storing`, `processing`, `generating` | Still working. Wait. |
 | `ready` | Usable in the editor, but processing continues. |
 | `processed` | Done. Publishing an Experience needs every asset it uses here. |
-| `failed` | Stopped. `state_message` says why. Offer the person a support ticket. |
+| `failed` | Stopped. See "When processing fails" below. |
+
+## When processing fails
+
+A failed asset can't be edited or published, and blocks publishing any
+Experience that uses it. `state_message` gives the reason when there is one.
+
+1. Name the asset and ask before retrying. `retry-asset-processing-tool {id}`
+   (write) runs processing again from the file already uploaded. It spends no
+   generation tokens. The person can do the same themselves from the asset's
+   page, with **Retry Processing** in its actions menu.
+2. Check `get-asset-tool {id}` as above until it reaches `processed`.
+3. A refusal saying the file was never stored means there is nothing to
+   retry: upload the file again, or generate it again, then swap the new
+   asset into the places that used the old one. If it fails a second time,
+   offer the person a support ticket instead of retrying again.
 
 ## Generate an image, a 360° backdrop, narration or a Replica video
 
