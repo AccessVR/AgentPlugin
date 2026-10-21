@@ -120,6 +120,28 @@ After editing something learners already use, remind the person to publish.
   `create-support-ticket-tool {subject, description}` (run with
   `execute_write_tools`), reading both back to the person first.
 
+## Changing the organization's own settings
+
+An organization's Org Admins and its owner can change its name, description
+and Guides address (`slug`), its logo, skybox and header images, its brand
+colors, its public profile links, its billing and technical contacts, and a
+few preferences. Other members can't.
+
+1. `get-organization-tool {id}` (run with `execute_read_tools`). Its
+   `settings` block holds exactly the keys this person may change, with their
+   current values. No `settings` block means they can't change any.
+2. Say what will change and get a yes. Changing `slug` breaks existing links
+   to the organization's published Guides.
+3. `update-organization-tool {id, ...}` (run with `execute_write_tools`) with
+   only the confirmed keys. `color_palette` replaces the whole palette, so
+   send back the colors that aren't changing too. Images are image Asset ids.
+   A new contact email gets a confirmation link and takes effect once it's
+   clicked.
+
+Feature switches, seats, the contract, the trial, the email domain and single
+sign-on are changed by OrchestrateXR support. A request that includes one is
+refused, naming it, and nothing changes. Offer a support ticket.
+
 ## Links
 
 Share only URLs a tool returned. Never build one from an id.
