@@ -70,6 +70,22 @@ decide what it reaches. Read this once, then the guide for the job.
 - List tools span every organization the person belongs to unless you pass
   `organization`.
 
+## People and Groups
+
+For Org Admins and Training Directors.
+
+- `list-users-tool {search}` finds a person and their `id`.
+- A **Group** is a named set of an organization's people, such as a class or
+  cohort, that is enrolled in Courses together. `list-groups-tool {organization?, search?}`
+  finds Groups, and `get-group-tool {id}` lists one Group's members (both run
+  with `execute_read_tools`).
+- `create-group-tool {name, organization?, description?, user_ids?}` and
+  `update-group-members-tool {id, add_user_ids?, remove_user_ids?}` change
+  them (run with `execute_write_tools`). Read the Group first. Restate the
+  Group and each person by name, and say that a person added is enrolled at
+  once in the open Courses the Group is enrolled in, which emails them.
+  Taking someone out of a Group doesn't withdraw them from any Course.
+
 ## Before changing anything
 
 - Read-only tools need no confirmation. Before any `execute_write_tools`

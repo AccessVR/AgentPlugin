@@ -106,7 +106,9 @@ Check the draft state with `get-course-tool {id}`: `publish.has_unpublished_chan
 No tool enrolls or withdraws learners. Once the Course is published, the
 person does that from the Course's screen in OrchestrateXR, with its
 **Enroll** button. They can enroll individuals or a Group, and a Group keeps
-enrolling its new members. Its **Share** button gives the link learners use
+enrolling its new members, so adding someone to an enrolled Group with
+`update-group-members-tool {id, add_user_ids}` (run with
+`execute_write_tools`) enrolls them too. Its **Share** button gives the link learners use
 to find the Course and enroll themselves. Give them the Course's `url` from a
 tool result to open that screen. Never build a learner link yourself.
 
