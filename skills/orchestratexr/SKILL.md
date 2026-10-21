@@ -111,6 +111,14 @@ Share only URLs a tool returned. Never build one from an id.
   one the person wants.
 - When `share_url` is null, give the reason the tool gives. Never offer `url`
   in its place: the people it's sent to can't open it.
+- To put an Experience, Character or Thread in a learning management system
+  (LMS), `get-scorm-package-tool {type, id, scorm_version?}` (run with
+  `execute_read_tools`) builds a SCORM package and returns its
+  `download_url`, for the person to download and upload to the LMS. `type`
+  is `experience`, `character` or `thread`. Leave `scorm_version` out for
+  SCORM 2004, and pass `scorm-1.2` only when the LMS won't accept 2004. The
+  link expires after an hour; call the tool again rather than reusing an old
+  one.
 
 ## Guides for each job
 
