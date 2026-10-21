@@ -1,6 +1,6 @@
 ---
 name: add-assets
-description: Get images, 360° panoramas, video, audio and documents into the OrchestrateXR asset library. Covers uploading a file from the chat or computer, importing one from a public link, generating an AI image or a 360° skybox, and generating a Replica video from a script. Use when someone needs a scene backdrop or any media file, wants to find an asset, check that it finished processing, share it, see where it is used, or recycle it.
+description: Get images, 360° panoramas, video, audio and documents into the OrchestrateXR asset library. Covers uploading a file from the chat or computer, importing one from a public link, generating an AI image or a 360° skybox, generating narration (text-to-speech voiceover audio) from a script, and generating a Replica video from a script. Use when someone needs a scene backdrop, a voiceover or any media file, wants to find an asset, check that it finished processing, share it, see where it is used, or recycle it.
 metadata:
   requires: authoring
 ---
@@ -52,6 +52,7 @@ and `height`; a 360° panorama is twice as wide as it is tall.
 | Is attached to the chat or on the machine you run on, and you can make HTTP requests | Upload it in three steps. |
 | Is attached, but you can't make HTTP requests | Ask for a public link to import, or ask the person to upload it on the Assets screen, then find it with `list-assets-tool`. |
 | Doesn't exist yet: an image or a 360° backdrop | Generate it. |
+| Is a script read aloud: narration or a voiceover | Generate narration. |
 | Is a person speaking a script to camera | Generate a Replica video. |
 
 You can't make HTTP requests when you have no shell, code sandbox or fetch
@@ -104,13 +105,14 @@ rather than polling for a long time in silence.
 | `processed` | Done. Publishing an Experience needs every asset it uses here. |
 | `failed` | Stopped. `state_message` says why. Offer the person a support ticket. |
 
-## Generate an image, a 360° backdrop or a Replica video
+## Generate an image, a 360° backdrop, narration or a Replica video
 
 `generate-asset-image-tool` makes flat images and 360° panoramas for scene
-backdrops. `generate-replica-video-tool` makes a talking-head video of a
-Replica reading a script. Both spend tokens, take a while, and are checked
-with `get-asset-generation-status-tool`. Read `references/generation.md`
-before calling either.
+backdrops. `generate-narration-tool` reads a script aloud in a Voice and
+saves it as an audio asset. `generate-replica-video-tool` makes a
+talking-head video of a Replica reading a script. All three spend tokens and
+are checked with `get-asset-generation-status-tool`. Read
+`references/generation.md` before calling any of them.
 
 ## Details, sharing and links
 

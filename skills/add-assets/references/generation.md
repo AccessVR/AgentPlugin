@@ -1,11 +1,11 @@
-# Generating images and Replica videos
+# Generating images, narration and Replica videos
 
-Both spend the organization's tokens. Confirm before every call, restating
+All three spend the organization's tokens. Confirm before every call, restating
 what will be made and that it spends tokens. The balance is in
 `list-organizations-tool {scope: "mine"}` under `consumables.tokens.balance`,
 for people who manage the organization.
 
-Both generate tools take `organization` and run with `execute_write_tools`.
+Every generate tool takes `organization` and runs with `execute_write_tools`.
 The list, get and status tools run with `execute_read_tools`.
 
 ## Generate an image or a 360° backdrop
@@ -27,6 +27,29 @@ Then `get-asset-generation-status-tool {ids}` with the returned `ids`, every
 several seconds, until `all_done`. A failed image releases its tokens. Read
 `failure_reason` before trying again. This tool counts `ready` as done, so
 check `get-asset-tool` for `processed` before publishing content that uses it.
+
+## Generate narration
+
+Narration is a script read aloud in a Voice: a voiceover for a scene, a
+narrated intro, spoken instructions. It lands in the library as an `audio`
+asset.
+
+1. Pick the Voice with `list-voices-tool {search?}`. Only a ready, active
+   Voice is accepted.
+2. Agree the script (up to 5,000 characters) and the Voice. Tags such as
+   `[whispers]` or `[excited]` direct the reading.
+3. It costs one token per character of the script. Restate the Voice, the
+   script and the token count, and get a yes.
+4. `generate-narration-tool {organization?, voice_id, script, name?}`.
+5. The tokens are charged once the audio is spoken. "Not enough tokens", or
+   a reading that fails, leaves nothing behind and charges nothing; tell the
+   person, and don't retry the tokens refusal.
+6. The audio is usually `processed` when the tool returns. If `state` is
+   still `processing`, poll `get-asset-generation-status-tool {ids}` with the
+   returned `id`.
+
+To play it in an Experience, add it to a scene as an audio layer with
+`add-layer-tool` (see the build-experience skill).
 
 ## Generate a Replica video
 

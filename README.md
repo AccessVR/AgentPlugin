@@ -12,7 +12,7 @@ This plugin brings two things:
 | `orchestratexr` | Get oriented: what the records are, how to find tools, which organization to work in, and when to confirm |
 | `build-experience` | Create or extend a 360° Experience with scenes, text, questions, hotspots and media, then validate and publish it |
 | `build-conversation` | Set up an AI Character, the Persona and Replica behind it, how it's scored, and the Thread around it |
-| `add-assets` | Upload files, import them from a link, or generate images and Replica videos |
+| `add-assets` | Upload files, import them from a link, or generate images, narration and Replica videos |
 | `knowledge-from-sources` | Turn documents and websites into knowledge a Persona or Character draws on |
 | `assemble-course` | Put Experiences, Threads and Guides into a Course and publish it |
 | `review-results` | Find how learners did: Sessions, Conversations, scores and Course progress |
