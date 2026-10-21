@@ -37,17 +37,12 @@ What every copy has in common:
 
 ## Report Types
 
-No tool duplicates a Report Type, so rebuild it:
+Find the source with `list-report-types-tool {search}`.
 
-1. `get-report-type-tool {id}` on the source. Note its `system_prompt`, its
-   analysis settings, and its Measurables.
-2. Skip every Measurable with `always_on` true. Every report carries those
-   already.
-3. For each of the rest, read the full criterion with `get-measurable-tool {id}`.
-4. Confirm the new name and organization, then
-   `create-report-type-tool {organization?, name, description?, system_prompt?, include_perception_analysis?, exclude_demographics_analysis?}`.
-5. In the original order, recreate each criterion with
-   `create-measurable-tool {conversation_report_type_id, label, key?, definition?, help_text?, additional_guidance?, applicability_rule?, source_type?, value_type?, value_config?, computed_metric?, derived_formula?}`.
-   Create the Measurables a `derived` one refers to before it.
-6. Compare the two with `get-report-type-tool`, then attach and publish the copy
-   as in the main skill.
+- `duplicate-report-type-tool {organization?, id, name?}` keeps the narrative
+  prompt, the analysis settings and every Measurable, in order, with all of
+  its fields. Derived Measurables still combine the right inputs. The copy is
+  attached to no Character or Thread. Compare it with the source using
+  `get-report-type-tool`, then attach and publish it as in the main skill.
+- Only someone who can edit the Report Type can copy it. One another
+  organization shares with yours can be attached as it is, but not copied.

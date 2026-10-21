@@ -37,8 +37,7 @@ execute_read_tools. Every other tool runs with execute_write_tools.
 
 Ask whether an existing Character, Persona, Thread or Report Type is close to
 what they want. If one is, read `references/copying.md`: it covers the
-duplicate tools, what a copy keeps and leaves behind, and how to rebuild a
-Report Type with its Measurables, which no single tool copies.
+duplicate tools and what a copy keeps and leaves behind.
 
 ## 2. Pick a Replica
 
