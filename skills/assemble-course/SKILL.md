@@ -68,9 +68,8 @@ Position comes from the order of the array.
 - `gated: true` locks an item until the one before it is complete. Don't gate
   the first item; nothing comes before it.
 - `retry_limit` caps retries (at least 1). `null` removes a cap.
-- `retry_enabled: false` turns retries off, but the Course editor has no
-  control for it and turns retries back on whenever someone saves the Course
-  there. Tell the person so when you set it.
+- `retry_enabled: false` turns retries off, so the item can be completed
+  once. It's the **Allow Retries** switch in the Course editor.
 - `debrief_enabled: true` runs the Course's debrief Character right after that
   item.
 - List each item once.
