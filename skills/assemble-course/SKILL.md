@@ -94,7 +94,9 @@ tool takes. Edit that list and send all of it back.
 ## 4. Publish
 
 `publish-course-tool {id}` makes the current settings and items what learners
-get. An unpublished Course shows learners nothing. Publishing a Course with no
+get. Until then, learners keep the published order, gating and retry settings,
+so a change to them doesn't lock or unlock anything for a learner yet. An
+unpublished Course shows learners nothing. Publishing a Course with no
 items is allowed, but nobody can start it, and the response warns you.
 
 After any change to a published Course, remind the person to publish again.
