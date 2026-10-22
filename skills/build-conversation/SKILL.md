@@ -123,7 +123,9 @@ reusing a Goal keeps results comparable across Characters.
   something the learner says ("names three vital signs that changed"), never
   "communicates well".
 - Existing: `assign-goals-tool {character_id, goals}`, where each entry is
-  `{goal_id, show_on_goals_list?, celebration_message?}`.
+  `{goal_id, show_on_goals_list?, celebration_message?}`. A Goal must belong
+  to the organization whose learners it reaches, or be System Owned. Any
+  other is left out, and the response's `warnings` name it.
 - Reorder or adjust: `update-goal-assignment-tool {character_id, goal_id, position?, show_on_goals_list?}`.
   Remove: `unassign-goals-tool {character_id, goal_ids}`.
 - Reword or delete the Goal itself, for every Character using it:

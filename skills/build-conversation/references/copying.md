@@ -16,11 +16,9 @@ Find the source with `list-characters-tool {search}`,
   `update-character-tool {id, persona_id}`.
 - `duplicate-persona-tool {organization?, id, name?}` keeps the prompt,
   settings, documents and Guides.
-- `duplicate-thread-tool {id, name?}` keeps the lineup and its per-slot
-  settings, and makes the copy private. The copy plays the same Characters as
-  the source. It has no `organization` and lands in the person's active
-  organization, so if they work in more than one, tell them where it will land
-  before calling.
+- `duplicate-thread-tool {organization?, id, name?}` keeps the lineup and its
+  per-slot settings, and makes the copy private. The copy plays the same
+  Characters as the source.
 
 What every copy has in common:
 
