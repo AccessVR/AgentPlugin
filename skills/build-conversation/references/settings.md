@@ -18,7 +18,9 @@ Set with `update-character-tool {id}` plus only the fields that change.
 | `custom_greeting_type` | `literal` speaks the greeting word for word. `prompt` treats it as an instruction to improvise a fresh greeting each time. | `literal`, `prompt` | on publish |
 | `wait_for_participant_to_greet` | Stay silent until the learner speaks first. | true, false | on publish |
 | `persona_demeanor_key` | Conversational manner. `standard` runs the Persona as configured. `reticent` is guarded, so the learner must draw them out. `assertive` drives hard and resists being derailed. `reflective` asks structured questions and gives thinking time. | `standard`, `reticent`, `assertive`, `reflective` | on publish |
-| `max_call_duration` | Time limit for one conversation, in seconds. | 60 or more | at once |
+| `time_limit_enabled` | End each conversation once `max_call_duration` runs out. Off by default. | true, false | at once |
+| `max_call_duration` | Time limit for one conversation, in seconds. Does nothing while `time_limit_enabled` is off. | 60 or more | at once |
+| `show_countdown` | Show the learner a countdown clock. Only appears while `time_limit_enabled` is on. | true, false | at once |
 | `enable_recording` | Record conversations. | true, false | at once |
 | `visibility` | Who can run it. `private` (the default) is the organization's members only. `unlisted` is anyone with the link, including people without an account. | `private`, `public`, `unlisted`, `secret` | at once |
 | `is_active` | Whether the Character can be used at all. | true, false | at once |
@@ -78,7 +80,7 @@ Each entry in the `characters` list of `create-thread-tool` or
 | `receives_context` | Give this Character the transcripts of the earlier conversations in the Thread. Off starts it fresh. | on |
 | `show_prebrief` | Show this Character's own prebrief, if it has one. | on |
 | `show_survey` | Offer this Character's own survey. Only the last slot can use it. | off |
-| `time_limit_enabled`, `max_call_duration`, `show_countdown` | A time limit for this slot, in seconds, and whether the learner sees a countdown. | |
+| `time_limit_enabled`, `max_call_duration`, `show_countdown` | A time limit for this slot, in seconds, and whether the learner sees a countdown. Each one left out uses the Character's own setting, and `max_call_duration` only applies while the time limit is on. | the Character's |
 
 Defaults apply only to a Character new to the lineup. A Character already in
 it keeps any setting its entry leaves out. When the same Character appears more

@@ -69,12 +69,14 @@ Reuse one when it fits (`list-personas-tool {search}`). Otherwise agree the prom
 
 ## 4. Create the Character
 
-`create-character-tool {organization?, name, replica_id, persona_id, conversational_context, custom_greeting?, custom_greeting_type?, conversation_report_type_id?}`
+`create-character-tool {organization?, name, replica_id, persona_id, conversational_context, custom_greeting?, custom_greeting_type?, conversation_report_type_id?, time_limit_enabled?, max_call_duration?, show_countdown?}`
 
 - `custom_greeting_type` is `literal` (spoken word for word, the default) or
   `prompt` (an instruction to improvise a greeting).
 - It starts as a private, unpublished draft.
-- Set time limits, recording, visibility, contact collection and surveys with
+- A time limit needs `time_limit_enabled: true`. It is off by default, and
+  `max_call_duration` (seconds, default 600) does nothing until it is on.
+- Set recording, visibility, contact collection and surveys with
   `update-character-tool`. Read `references/settings.md` for every setting.
 - `update-character-tool` has no `goals` argument. Goals have their own tools
   (step 6).
