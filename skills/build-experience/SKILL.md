@@ -56,10 +56,9 @@ Every `list-`, `get-` and `validate-` tool here runs with
 2. **Create the draft.**
    `create-experience-tool {organization?, name, description?, visibility?, show_scene_list?, allow_skipping?, complete_message?, thumbnail_asset_id?}`.
    It starts private, unpublished and empty. `visibility` is `private`,
-   `public`, `protected`, `unlisted` or `secret`. `thumbnail_asset_id` is
-   the Preview Image shown on the Experience's card and in share previews.
-   It must be an image. Without one, the card shows the first scene's
-   backdrop.
+   `public`, `unlisted` or `secret`. `thumbnail_asset_id` is the Preview
+   Image shown on the Experience's card and in share previews. It must be an
+   image. Without one, the card shows the first scene's backdrop.
 3. **Find a skybox for each scene.**
    `list-assets-tool {search?, asset_type?, video_type?, state?, organization?}`.
    `asset_type` takes `image`, `video`, `audio` or `file`. A 360° video is
