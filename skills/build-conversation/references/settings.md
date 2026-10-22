@@ -73,12 +73,16 @@ Each entry in the `characters` list of `create-thread-tool` or
 
 | Field | What it does | Default |
 | --- | --- | --- |
-| `character_id` | The Character in this slot. Required. | |
+| `character_id` | The Character in this slot. Required. `id`, as `get-thread-tool` returns it, is accepted too. | |
 | `auto_continue` | Move the learner straight to the next Character when this conversation ends. Off shows a Continue button instead. | on |
 | `receives_context` | Give this Character the transcripts of the earlier conversations in the Thread. Off starts it fresh. | on |
 | `show_prebrief` | Show this Character's own prebrief, if it has one. | on |
 | `show_survey` | Offer this Character's own survey. Only the last slot can use it. | off |
 | `time_limit_enabled`, `max_call_duration`, `show_countdown` | A time limit for this slot, in seconds, and whether the learner sees a countdown. | |
+
+Defaults apply only to a Character new to the lineup. A Character already in
+it keeps any setting its entry leaves out. When the same Character appears more
+than once, its entries match its existing slots in order.
 
 Slot settings belong to the Thread. Changing them takes `set-thread-characters-tool`
 with the whole lineup, then `publish-thread-tool`.

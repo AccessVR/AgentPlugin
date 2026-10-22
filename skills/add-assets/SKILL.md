@@ -86,8 +86,8 @@ Never pass a file's contents through a tool argument.
 
    Add `-H "Name: value"` for each returned header. The address expires
    after 60 minutes; start again after that.
-3. `finish-asset-upload-tool {id}`, passing the `asset_id` as `id`. It has no
-   `asset_id` argument. It refuses until the bytes have arrived.
+3. `finish-asset-upload-tool {asset_id}`, with the `asset_id` from step 1. It
+   refuses until the bytes have arrived.
 4. Wait for processing (below).
 
 Until step 3 the asset is hidden: list and get tools don't find it.

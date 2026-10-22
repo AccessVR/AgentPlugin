@@ -45,8 +45,9 @@ Every `list-`, `get-` and `validate-` tool here runs with
    state and any edit `lock`.
 3. `get-scene-tool {id}` returns one scene's timing, end action and every
    layer with its `id`. You need the layer id to change or delete a layer.
-   Hotspots, questions, answers and actions come back with camelCase keys,
-   which the write tools accept as they are.
+   The scene's own settings come back under the names `update-scene-tool`
+   takes. Hotspots, questions, answers and actions come back with camelCase
+   keys, which the write tools accept as they are.
 
 ## Build a new Experience
 

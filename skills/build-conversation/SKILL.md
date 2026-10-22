@@ -120,10 +120,16 @@ reusing a Goal keeps results comparable across Characters.
   With `character_id` it is assigned in the same call. Write `criteria` as
   something the learner says ("names three vital signs that changed"), never
   "communicates well".
-- Existing: `assign-goals-tool {id, goals}`, where `id` is the Character and
-  each entry is `{goal_id, show_on_goals_list?, celebration_message?}`.
-- Reorder or adjust: `update-goal-assignment-tool {id, goal_id, position?, show_on_goals_list?}`.
-  Remove: `unassign-goals-tool {id, goal_ids}`.
+- Existing: `assign-goals-tool {character_id, goals}`, where each entry is
+  `{goal_id, show_on_goals_list?, celebration_message?}`.
+- Reorder or adjust: `update-goal-assignment-tool {character_id, goal_id, position?, show_on_goals_list?}`.
+  Remove: `unassign-goals-tool {character_id, goal_ids}`.
+- Reword or delete the Goal itself, for every Character using it:
+  `update-goal-tool {goal_id, name?, criteria?, celebration_message?}` or
+  `delete-goal-tool {goal_id}`.
+
+These tools also take the Character or the Goal as `id`. Prefer
+`character_id` and `goal_id`, which can't be mistaken for each other.
 
 A Goal is hidden from the learner's Goals list by default, so they discover it
 by meeting it. Learners meet Goals once the Character is published.
@@ -152,7 +158,11 @@ once, without publishing.
 
 To change the lineup later, read the current one with `get-thread-tool {id}`,
 then send the complete new list to `set-thread-characters-tool {id, characters}`.
-It replaces the lineup wholesale: any entry left out is removed.
+The `characters` it returned can go back as they are, reordered or trimmed:
+each entry's `id` is taken as its `character_id`. It replaces the lineup
+wholesale: any entry left out is removed. A Character already in the lineup
+keeps every slot setting its entry doesn't name, so a reorder changes only the
+order.
 
 ## 9. Publish in order
 
