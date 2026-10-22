@@ -152,8 +152,10 @@ removed from the draft but still in the published version isn't matched.
 
 ## Recycle and restore
 
-`delete-asset-tool {id, force?}` checks Experiences, Characters, Threads and
-Courses first and refuses with the list of places still using the asset.
+`delete-asset-tool {id, force?}` first checks everything that can use an
+asset: Experiences, Characters, Threads, Courses, Guides, Packages, Replicas,
+Documents, Projects, attachments, organization branding and marketplace
+Products. It refuses with the list of places still using the asset.
 Places the person can't see are counted, not named. Pass `force: true` only
 after restating that list and getting a yes: those places lose the media.
 `restore-asset-tool {id}` brings a recycled asset back.
