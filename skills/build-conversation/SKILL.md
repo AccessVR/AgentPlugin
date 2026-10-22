@@ -133,10 +133,17 @@ conversation without publishing.
 
 ## 8. Build the Thread
 
-`create-thread-tool {organization?, name, description?, conversation_report_type_id?, characters?}`.
+`create-thread-tool {organization?, name, description?, conversation_report_type_id?, thumbnail_asset_id?, characters?}`.
 `characters` is the ordered lineup; each entry is `{character_id, ...}` with
 the slot settings in `references/settings.md`. The same Character can appear
 twice.
+
+`thumbnail_asset_id` is the image on the Thread's card. Without one, the card
+shows the first Character's Replica. Set or change it later with
+`update-thread-tool {id, thumbnail_asset_id}`; pass null to remove it. It must
+be an image asset (`list-assets-tool {asset_type: "image"}`, or one made with
+the `add-assets` skill once it has finished generating), and it applies at
+once, without publishing.
 
 To change the lineup later, read the current one with `get-thread-tool {id}`,
 then send the complete new list to `set-thread-characters-tool {id, characters}`.

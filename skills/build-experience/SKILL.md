@@ -52,9 +52,12 @@ Every `list-`, `get-` and `validate-` tool here runs with
    what happens in each scene, how learners move between scenes, and how the
    Experience ends.
 2. **Create the draft.**
-   `create-experience-tool {organization?, name, description?, visibility?, show_scene_list?, allow_skipping?, complete_message?}`.
+   `create-experience-tool {organization?, name, description?, visibility?, show_scene_list?, allow_skipping?, complete_message?, thumbnail_asset_id?}`.
    It starts private, unpublished and empty. `visibility` is `private`,
-   `public`, `protected`, `unlisted` or `secret`.
+   `public`, `protected`, `unlisted` or `secret`. `thumbnail_asset_id` is
+   the Preview Image shown on the Experience's card and in share previews.
+   It must be an image. Without one, the card shows the first scene's
+   backdrop.
 3. **Find a skybox for each scene.**
    `list-assets-tool {search?, asset_type?, video_type?, state?, organization?}`.
    `asset_type` takes `image`, `video`, `audio` or `file`. A 360° video is
@@ -125,6 +128,11 @@ The problems quote editor buttons. Fix them with these tools instead:
 - **Settings and sharing.**
   `update-experience-tool {id, name?, description?, visibility?, show_scene_list?, allow_skipping?, complete_message?, add_secret_emails?, remove_secret_emails?}`.
   Secret-access list changes apply at once, without publishing.
+- **Preview Image.** `update-experience-tool {id, thumbnail_asset_id}` with
+  an image asset. Find one with `list-assets-tool {asset_type: "image"}`, or
+  make one with the `add-assets` skill and wait until it has finished
+  generating. It applies at once, without publishing. Pass null to go back
+  to the first scene's backdrop.
 - **Copy one.** `duplicate-experience-tool {organization?, id, new_name?}`
   makes a private, unpublished copy of every scene and layer. Pass
   `organization` when the person works in more than one. The copy can only
