@@ -83,7 +83,10 @@ Every `list-`, `get-` and `validate-` tool here runs with
 7. **Validate.** `validate-experience-tool {id}`, where `id` is the
    Experience's id. It has no `experience_id` argument.
 8. **Explain the problems** by scene and layer name, then fix them (see
-   below) and validate again until it returns `valid: true`.
+   below) and validate again until it returns `valid: true`. Its `warnings`
+   list go-to-scene actions whose scene was deleted. They don't block
+   publishing, but the learner's choice leads nowhere: point each at another
+   scene.
 9. **Publish.** Restate the Experience's name, confirm, then
    `publish-experience-tool {id}`. It returns the published version number and
    a `preview_url` for that version. Get the learner link from
@@ -113,8 +116,13 @@ The problems quote editor buttons. Fix them with these tools instead:
   `update-layer-tool {scene_id, layer_id, properties}`. `scene_id` is
   required. Only the keys in `properties` change, but `hotspots` and
   `questions` replace the whole list: read the scene, edit the list, and
-  send all of it back. A layer's `event_type` can't change; delete it and
-  add a new one.
+  send all of it back with each item's `id`. Learners' answers are recorded
+  against a question's `id`, so a question sent without one starts a new
+  answer history unless its text matches exactly one existing question. The
+  response's `removed` lists what the new list left out; tell the person.
+  A card deeper than three levels comes back as `{id, truncated: true}`:
+  send it back unchanged and the card is kept. A layer's `event_type` can't
+  change; delete it and add a new one.
 - **Remove a layer.** `delete-layer-tool {scene_id, layer_id}`. Restate the
   layer's name first.
 - **Change a scene.**
@@ -125,6 +133,9 @@ The problems quote editor buttons. Fix them with these tools instead:
   `scene_order` must list every scene id exactly once.
 - **Remove a scene.** `delete-scene-tool {id}`. The initial scene can't be
   removed while other scenes remain: set another `initial_scene_id` first.
+  Actions that go to the scene are left pointing at it, and the response's
+  `warnings` name them. Point each at another scene with `update-scene-tool`
+  (an end action) or `update-layer-tool` (a hotspot or answer).
 - **Settings and sharing.**
   `update-experience-tool {id, name?, description?, visibility?, show_scene_list?, allow_skipping?, complete_message?, add_secret_emails?, remove_secret_emails?}`.
   Secret-access list changes apply at once, without publishing.

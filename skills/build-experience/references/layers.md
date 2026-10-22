@@ -48,10 +48,10 @@ publishing. Pass the `questions` or `hotspots` list in the same call.
 | `position`, `rotation`, `scale` | Worldspace placement. `scale` is a vector `{X, Y, Z}` of multipliers. |
 | `sprite_mode` | Worldspace layers face the camera unless this is `false`. `rotation` only applies when it is `false`. |
 | `spatial` | Media with `display_type` 2: play the audio from `position`. |
-| `hotspots` | Hotspot layers: the full list. Replaces the existing list. |
+| `hotspots` | Hotspot layers: the full list, each existing hotspot with its `id`. Replaces the existing list. |
 | `hotspot_visibility` | Hotspot layers: `visible` or `hidden`. Hidden hotspots must be found by looking around. |
 | `always_show_labels` | Hotspot layers: show every hotspot's label. |
-| `questions` | Question layers: the full list. Replaces the existing list. |
+| `questions` | Question layers: the full list, each existing question with its `id` (answers are recorded against it). Replaces the existing list. |
 
 `display_type` by layer type. Any other combination is refused:
 
@@ -143,9 +143,11 @@ it.
 The card takes the same properties as a layer, in the same vocabulary:
 `title`, `description`, `asset_id`, `questions` and the rest. It gets the
 defaults the editor gives a new card, so set only what differs. A question
-card's answers can open further cards, down to the three-level limit. A layer
-holding a card deeper than that can't be changed through these tools; say so
-and point the person to the Experience Editor.
+card's answers can open further cards, down to the three-level limit.
+`get-scene-tool` returns a card deeper than that as `{id, truncated: true}`.
+Send that placeholder back unchanged and the stored card is kept, so the rest
+of the layer can still be edited. To change the deep card itself, point the
+person to the Experience Editor.
 
 Read the scene with `get-scene-tool` afterwards to check the card.
 
