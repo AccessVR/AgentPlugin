@@ -13,12 +13,13 @@ The list, get and status tools run with `execute_read_tools`.
 `generate-asset-image-tool {organization?, prompt, panorama?, resolution?, aspect?, count?, source_asset_ids?}`
 
 - `panorama: true` makes a 360° image for a scene backdrop. It always
-  renders at 4K, the most expensive tier.
+  renders at 4K, the most expensive tier, and at 2:1, so leave `aspect` out.
 - A flat image takes `resolution` `1K` (default and cheapest), `2K` or `4K`,
   and `aspect` `1:1` (default), `2:3`, `3:2`, `3:4`, `4:3`, `9:16`, `16:9`
   or `21:9` (ultra-wide).
 - `count` makes 1 to 4 variations, each charged.
-- `source_asset_ids` lists up to 5 library images to base the result on.
+- `source_asset_ids` lists up to 5 library images to base the result on. A
+  panorama takes at most 1.
 
 Tokens are reserved when you call. State the count, the resolution and
 whether it's a panorama, and get a yes. "Not enough tokens" leaves nothing
