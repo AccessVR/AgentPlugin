@@ -168,7 +168,7 @@ Share only URLs a tool returned. Never build one from an id.
 | Set up a Character, its Persona and Replica, its Goals, and the Thread and Report Type around it | `build-conversation` |
 | Upload, import or generate images, video, audio and documents | `add-assets` |
 | Turn documents and websites into Guides a Persona can draw on | `knowledge-from-sources` |
-| Put content in a Course, publish it, and see who is enrolled | `assemble-course` |
+| Put content in a Course, publish it, enroll learners, and see who is enrolled | `assemble-course` |
 | See how learners did: Sessions, transcripts, scores, Goals, Course progress | `review-results` |
 
 Read one with `get-skill-tool {name}`. When a guide points to a reference

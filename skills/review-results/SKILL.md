@@ -6,7 +6,8 @@ description: Find out how learners did in OrchestrateXR. Use when someone asks h
 # Review results
 
 Everything here only reads, so every tool runs with `execute_read_tools` and
-needs no confirmation. What comes back depends on who is asking:
+needs no confirmation, except changing Course enrollments at the end of
+section 7. What comes back depends on who is asking:
 
 - Learners see their own Sessions and Conversations.
 - Org Admins and Training Directors see their organizations' Sessions and
@@ -123,6 +124,22 @@ is in the `goals` of `get-conversation-tool` and `get-session-tool`.
 - It doesn't show progress item by item. For that, read the Course's items with
   `get-course-tool {id}`, then look up the learner's Sessions for each
   Experience, Character or Thread in it. Guides and Assets leave no Sessions.
+
+### Changing enrollments
+
+People who can edit a Course can also change who is on it. These aren't
+reads: they run with `execute_write_tools`, and each needs a yes first.
+
+- `list-enrollment-targets-tool {id, search?}` (a read) turns names into the
+  people and Group ids below, with each person's `enrollment_status`.
+- `enroll-in-course-tool {id, user_ids?, group_ids?}` enrolls people or
+  Groups. Each person newly enrolled is emailed; say so before calling.
+- `withdraw-from-course-tool {id, user_ids?, group_ids?}` takes them off the
+  Course. Their progress is kept for if they come back.
+- `reset-course-progress-tool {id, user_ids}` starts enrolled learners over.
+  It permanently deletes their completion records for that Course and can't
+  be undone, so restate the Course and each learner by name and say so before
+  calling. Sessions and Conversations are kept.
 
 ## Summaries and reports
 

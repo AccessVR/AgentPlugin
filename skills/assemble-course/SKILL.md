@@ -1,6 +1,6 @@
 ---
 name: assemble-course
-description: Build or change a Course in OrchestrateXR and publish it. Use when someone wants to put Experiences, Characters, Threads, Guides or Assets in order for learners, lock items until the one before is done, add a debrief, set due dates, visibility or self-enrollment, reorder or remove Course content, publish or archive a Course, or check who is enrolled and who has finished.
+description: Build or change a Course in OrchestrateXR and publish it. Use when someone wants to put Experiences, Characters, Threads, Guides or Assets in order for learners, lock items until the one before is done, add a debrief, set due dates, visibility or self-enrollment, reorder or remove Course content, publish or archive a Course, enroll or withdraw people and Groups, reset a learner's progress, or check who is enrolled and who has finished.
 metadata:
   requires: authoring
 ---
@@ -104,14 +104,53 @@ Check the draft state with `get-course-tool {id}`: `publish.has_unpublished_chan
 
 ## 5. Enrolling learners
 
-No tool enrolls or withdraws learners. Once the Course is published, the
-person does that from the Course's screen in OrchestrateXR, with its
-**Enroll** button. They can enroll individuals or a Group, and a Group keeps
-enrolling its new members, so adding someone to an enrolled Group with
-`update-group-members-tool {id, add_user_ids}` (run with
-`execute_write_tools`) enrolls them too. Its **Share** button gives the link learners use
-to find the Course and enroll themselves. Give them the Course's `url` from a
-tool result to open that screen. Never build a learner link yourself.
+Publish first: learners can't see an unpublished Course, and enrolling still
+emails them.
+
+1. Find who to enroll with
+   `list-enrollment-targets-tool {id, search?, limit?}` (run with
+   `execute_read_tools`). It returns the `people` and `groups` that can be
+   enrolled in this Course. Each person's `enrollment_status` is `null` if
+   they've never been on it, otherwise `active`, `completed` or `withdrawn`.
+   Each Group says whether it's `enrolled`.
+2. Name the Course and every person and Group, say that each person newly
+   enrolled gets an email, and get a yes.
+3. `enroll-in-course-tool {id, user_ids?, group_ids?}` (run with
+   `execute_write_tools`). Send at least one of the two lists.
+
+- A Group's current members are enrolled, and so is anyone who joins it
+  later, so adding someone to an enrolled Group with
+  `update-group-members-tool {id, add_user_ids}` (run with
+  `execute_write_tools`) enrolls them too.
+- Someone who had been withdrawn comes back with their earlier progress and
+  isn't emailed again. Someone already enrolled is left as they are.
+- Relay the `warnings`. The response lists who was `enrolled`, `reinstated`
+  and `already_enrolled`, and how many members each Group added.
+
+The Course's **Share** button gives the link learners use to find the Course
+and enroll themselves. Give the person the Course's `url` from a tool result
+to open that screen. Never build a learner link yourself.
+
+### Withdrawing learners or Groups
+
+`withdraw-from-course-tool {id, user_ids?, group_ids?}` (run with
+`execute_write_tools`). Name the Course and everyone being withdrawn, and get
+a yes first. Nobody is emailed.
+
+- A withdrawn person keeps their progress. Enrolling them again picks up where
+  they left off.
+- Withdrawing a Group removes only the enrollments that Group made, and stops
+  enrolling its new members. People who enrolled themselves or came through
+  another Group stay.
+
+### Resetting a learner's progress
+
+`reset-course-progress-tool {id, user_ids}` (run with `execute_write_tools`)
+starts enrolled learners over. **It permanently deletes their completion
+records for every item and debrief in the Course, and can't be undone.**
+Restate the Course's name and each learner's name, say their progress will be
+erased for good, and get a yes for that specifically. Their Sessions and
+Conversations are kept. If anyone named isn't enrolled, nothing is reset.
 
 ## 6. Who is enrolled, and who has finished
 
