@@ -14,7 +14,7 @@ be edited.
 | `system_prompt` | Drives the written narrative of the report. Leave it out (or set null) for a measurables-only report. | none |
 | `include_perception_analysis` | Feed the analysis of how the learner came across on camera into the report, and show it as a section. | true |
 | `exclude_demographics_analysis` | Rewrite that analysis to remove anything revealing race, gender or sexual orientation, keeping mood, attitude and posture. | false |
-| `active` | Update only. Whether it can be attached to new content. | true |
+| `active` | Update only, and only OrchestrateXR support staff can change it. Whether it can be newly attached to a Character or Thread; off also stops it being sold. Content already using it keeps it. | true |
 
 ## Measurable fields
 
