@@ -10,6 +10,8 @@ This plugin brings two things:
 | Skill | Use it to |
 |---|---|
 | `orchestratexr` | Get oriented: what the records are, how to find tools, which organization to work in, and when to confirm |
+| `design-training` | Work out what to build: what people need to do differently, why they don't yet, the objectives, and which content fits |
+| `plan-a-project` | Plan in a Project: write its brief, add the people it answers to, save its sources, and track what it produces |
 | `build-experience` | Create or extend a 360° Experience with scenes, text, questions, hotspots and media, then validate and publish it |
 | `build-conversation` | Set up an AI Character, the Persona and Replica behind it, how it's scored, and the Thread around it |
 | `add-assets` | Upload files, import them from a link, or generate images, narration and Replica videos |

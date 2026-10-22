@@ -32,7 +32,8 @@ decide what it reaches. Read this once, then the guide for the job.
 - **Sessions** and **Conversations**: what learners did. A Session is one run
   of an Experience, Character or Thread, with its score and reports. A
   Conversation holds the transcript and the Goals reached.
-- **Projects**: where an organization plans content, with a brief and links.
+- **Projects**: where an organization plans content: a brief, the people it
+  answers to, the source material behind it, and the content it produces.
 
 ## Finding and running tools
 
@@ -175,6 +176,8 @@ Share only URLs a tool returned. Never build one from an id.
 
 | Job | Guide |
 | --- | --- |
+| Work out what to build: the behavior to change, why it isn't happening, objectives, and what kind of content fits | `design-training` |
+| Plan in a Project: its brief, people, resources, deliverables and stage | `plan-a-project` |
 | Build or change an Experience: scenes, layers, hotspots, questions | `build-experience` |
 | Set up a Character, its Persona and Replica, its Goals, and the Thread and Report Type around it | `build-conversation` |
 | Upload, import or generate images, video, audio and documents | `add-assets` |
