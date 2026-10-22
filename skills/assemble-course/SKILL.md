@@ -67,7 +67,7 @@ name shows in lists at once.
 
 ## 3. Set the items
 
-`set-course-items-tool {id, items}` replaces the whole list. Each entry is
+`set-course-items-tool {id, items, confirm_removals?}` replaces the whole list. Each entry is
 `{"type": ..., "id": ..., "gated": ..., "retry_enabled": ..., "retry_limit": ..., "debrief_enabled": ...}`,
 with `type` one of `experience`, `character`, `thread`, `guide`, `asset`.
 Position comes from the order of the array.
@@ -89,13 +89,17 @@ debrief.
 (run with `execute_read_tools`). Its `items` come back in the same shape this
 tool takes. Edit that list and send all of it back.
 
-- An item you leave out is removed.
+- An item you leave out is removed, once you confirm the removal (below).
 - An item already in the Course keeps any setting its entry leaves out, so
   `{"type": ..., "id": ...}` alone moves it without changing how it behaves.
   Name a setting only to change it.
 - **Removing an item permanently deletes every learner's completion record
-  for it.** Before the call, name each item being removed and say that
-  learners' progress on it will be lost. Get a yes for that specifically.
+  for it.** A list that leaves items out is refused, with nothing changed. The
+  refusal names each item and how many completion records it holds, and gives
+  the `confirm_removals` value to send. Tell the person which items would be
+  removed and that learners' progress on them will be lost, and get a yes for
+  that specifically. Then send the same `items` with that `confirm_removals`.
+  A confirmation that names an item the list keeps is refused too.
   Reordering and changing settings keep learners' progress.
 - Relay the `warnings` the response returns.
 

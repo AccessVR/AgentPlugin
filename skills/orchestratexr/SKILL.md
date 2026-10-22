@@ -52,6 +52,10 @@ decide what it reaches. Read this once, then the guide for the job.
   error. A batch holding a tool that belongs to the other executor is refused
   before anything in it runs. When a call needs an id from an earlier result,
   make a second executor call.
+- A batch whose results are too large to return keeps the results that fit.
+  The call that overflowed did run: its result says so, and the calls after it
+  are listed under `not_run`. Never repeat a write to see its result; run only
+  the `not_run` calls, in a new executor call.
 - A tool the search can't find isn't available to this account. Don't guess
   names, and pass only the arguments a tool declares.
 - Every account gets 60 tool calls a minute. Page long lists with `limit`
@@ -119,7 +123,8 @@ apply at once. Confirm those as changes to what learners get now.
   all. Stop and explain. Don't retry or look for a way around it.
 - **"Authoring tools are not enabled for this account"**: creating and
   changing content takes Authoring Tools, which OrchestrateXR support turns on
-  per person. Support tickets, Projects and sign-in codes don't need them.
+  per person. Support tickets, Projects, Course enrollment, Groups, sign-in
+  codes and an Org Admin's organization settings don't need them.
 - **"Content from another organization cannot be referenced here"**:
   OrchestrateXR support can subscribe the organization to that content.
   Offer a ticket with
