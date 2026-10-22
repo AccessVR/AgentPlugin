@@ -26,9 +26,10 @@ whether it's a panorama, and get a yes. "Not enough tokens" leaves nothing
 behind; tell the person and don't retry.
 
 Then `get-asset-generation-status-tool {ids}` with the returned `ids`, every
-several seconds, until `all_done`. A failed image releases its tokens. Read
-`failure_reason` before trying again. This tool counts `ready` as done, so
-check `get-asset-tool` for `processed` before publishing content that uses it.
+several seconds, until `all_done`. An image is done once it's `processed`,
+which is what publishing needs; `ready` shows in the editor but is still
+processing. A failed image releases its tokens. Read `failure_reason` before
+trying again.
 
 ## Generate narration
 
@@ -67,8 +68,9 @@ To play it in an Experience, add it to a scene as an audio layer with
 3. Tokens are charged by the script's length. Restate the Replica, the voice
    and the script, say it spends tokens, and get a yes.
 4. `generate-replica-video-tool {organization?, replica_id, script, name?, voice_id?, use_replica_voice?, transparent_background?}`.
-5. Poll `get-asset-generation-status-tool {ids}` with the returned `id`. It
-   takes several minutes.
+5. Poll `get-asset-generation-status-tool {ids}` with the returned `id` until
+   `all_done`. It takes several minutes, and the video is `processed` when it
+   finishes.
 
 "Your organization does not have enough tokens available" is refused before
 anything is spent. Tell the person, and don't retry. A Replica still being

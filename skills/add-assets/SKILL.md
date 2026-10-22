@@ -101,7 +101,7 @@ rather than polling for a long time in silence.
 | `state` | Meaning |
 | --- | --- |
 | `uploading`, `storing`, `processing`, `generating` | Still working. Wait. |
-| `ready` | Usable in the editor, but processing continues. |
+| `ready` | Shows in the editor, but processing continues. Keep waiting. |
 | `processed` | Done. Publishing an Experience needs every asset it uses here. |
 | `failed` | Stopped. See "When processing fails" below. |
 
@@ -125,8 +125,9 @@ Experience that uses it. `state_message` gives the reason when there is one.
 `generate-asset-image-tool` makes flat images and 360° panoramas for scene
 backdrops. `generate-narration-tool` reads a script aloud in a Voice and
 saves it as an audio asset. `generate-replica-video-tool` makes a
-talking-head video of a Replica reading a script. All three spend tokens and
-are checked with `get-asset-generation-status-tool`. Read
+talking-head video of a Replica reading a script. All three spend tokens,
+take a while, and are checked with `get-asset-generation-status-tool`, which
+reports done only once the asset is `processed`. Read
 `references/generation.md` before calling any of them.
 
 ## Details, sharing and links

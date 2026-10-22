@@ -23,8 +23,9 @@ organization tokens by the length of the script.
    prepared, or an organization without enough tokens, is refused before
    anything is spent.
 4. Poll `get-asset-generation-status-tool {ids}` several seconds apart until
-   `all_done` is true. Videos take several minutes. On failure, read
-   `failure_reason` before retrying; the reserved tokens come back.
+   `all_done` is true, which means the video is `processed`. Videos take
+   several minutes. On failure, read `failure_reason` before retrying; the
+   reserved tokens come back.
 5. Attach it to the Character
    `update-character-tool {id, prebrief_enabled, prebriefing_video_asset_id, prebriefing_content?}`
    or to the Thread
