@@ -39,7 +39,7 @@ version of each item, so point out any item that has never been published.
 
 ## 2. Create the Course
 
-`create-course-tool {organization?, name, description?, learning_objectives?, visibility?, due_date_mode?, due_date?, due_days_after_enrollment?, self_enrollment_enabled?, debrief_enabled?, debrief_character_id?, passing_grade?}`
+`create-course-tool {organization?, name, description?, learning_objectives?, visibility?, due_date_mode?, due_date?, due_days_after_enrollment?, self_enrollment_enabled?, debrief_enabled?, debrief_character_id?}`
 
 - Only `name` is required. Propose the rest from the conversation rather than
   asking field by field.
