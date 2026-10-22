@@ -19,7 +19,7 @@ This plugin brings two things:
 | `assemble-course` | Put Experiences, Threads and Guides into a Course and publish it |
 | `review-results` | Find how learners did: Sessions, Conversations, scores and Course progress |
 
-Creating and changing content needs **Authoring Tools** on your account. OrchestrateXR support turns it on per user. Without it, your assistant can still look things up.
+Your assistant can do what your own role in OrchestrateXR lets you do. If your role can't create content, it can still look things up.
 
 ## Install
 

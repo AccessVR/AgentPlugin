@@ -2,7 +2,7 @@
 name: build-experience
 description: Build or change an OrchestrateXR Experience. Covers creating the draft, giving each scene a 360° backdrop, adding text cards, questions, hotspots and media, linking scenes, checking what blocks publishing, and publishing. Use when someone wants a new Experience or virtual tour, wants to add or reorder scenes, add a quiz, hotspots or a video to a scene, fix a failed publish, copy an Experience, or roll one back to an earlier version.
 metadata:
-  requires: authoring
+  requires: authoring:experience
 ---
 
 # Build an Experience

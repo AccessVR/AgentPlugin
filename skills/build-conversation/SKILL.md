@@ -2,7 +2,7 @@
 name: build-conversation
 description: Set up an AI conversation in OrchestrateXR for training, assessment, sales practice or any role-play. Covers choosing a Replica, writing the Persona, creating the Character, scoring it with a Report Type and Measurables, adding Goals, attachments and a prebrief video, stringing Characters into a Thread, and publishing in the right order. Use when someone wants a new Character or Thread, wants to change how conversations are scored, or wants to copy a Character, Persona, Thread or Report Type as a starting point.
 metadata:
-  requires: authoring
+  requires: authoring:character
 ---
 
 # Build a conversation

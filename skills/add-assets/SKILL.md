@@ -2,7 +2,7 @@
 name: add-assets
 description: Get images, 360° panoramas, video, audio and documents into the OrchestrateXR asset library. Covers uploading a file from the chat or computer, importing one from a public link, generating an AI image or a 360° skybox, generating narration (text-to-speech voiceover audio) from a script, and generating a Replica video from a script. Use when someone needs a scene backdrop, a voiceover or any media file, wants to find an asset, check that it finished processing, share it, see where it is used, or recycle it.
 metadata:
-  requires: authoring
+  requires: authoring:asset
 ---
 
 # Add assets

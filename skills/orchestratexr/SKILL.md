@@ -122,10 +122,9 @@ apply at once. Confirm those as changes to what learners get now.
   reach. Check it with the list tool the message names. Don't repeat the call.
 - **"Unauthorized"**: the person isn't signed in, or can't use that tool at
   all. Stop and explain. Don't retry or look for a way around it.
-- **"Authoring tools are not enabled for this account"**: creating and
-  changing content takes Authoring Tools, which OrchestrateXR support turns on
-  per person. Support tickets, Projects, Course enrollment, Groups, sign-in
-  codes and an Org Admin's organization settings don't need them.
+- **"MCP access is turned off for this OrchestrateXR account"**: every
+  call will be refused until OrchestrateXR support turns it back on. Stop and
+  tell the person. Don't retry or reconnect.
 - **"Content from another organization cannot be referenced here"**:
   OrchestrateXR support can subscribe the organization to that content.
   Offer a ticket with
@@ -186,5 +185,6 @@ Share only URLs a tool returned. Never build one from an id.
 | See how learners did: Sessions, transcripts, scores, Goals, Course progress | `review-results` |
 
 Read one with `get-skill-tool {name}`. When a guide points to a reference
-file, read it with `get-skill-tool {name, file}`. Guides that create or change
-content need Authoring Tools and are hidden without them.
+file, read it with `get-skill-tool {name, file}`. A guide that creates or
+changes one kind of content is hidden from an account whose role can't create
+that kind.

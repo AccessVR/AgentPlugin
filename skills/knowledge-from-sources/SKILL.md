@@ -2,7 +2,7 @@
 name: knowledge-from-sources
 description: Turn documents, videos, recordings and websites into knowledge an OrchestrateXR Character or Persona draws on during conversations. Covers making a Guide from an uploaded file, reading a website into a Guide, writing a Guide directly, attaching Guides to a Persona or Character, and checking what the knowledge base now answers. Use when someone wants a Character to know a manual, policy, procedure, product sheet, transcript or website, or asks why a Character doesn't know something.
 metadata:
-  requires: authoring
+  requires: authoring:guide
 ---
 
 # Knowledge from sources

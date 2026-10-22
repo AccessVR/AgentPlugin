@@ -2,7 +2,7 @@
 name: assemble-course
 description: Build or change a Course in OrchestrateXR and publish it. Use when someone wants to put Experiences, Characters, Threads, Guides or Assets in order for learners, lock items until the one before is done, add a debrief, set due dates, visibility or self-enrollment, reorder or remove Course content, publish or archive a Course, enroll or withdraw people and Groups, reset a learner's progress, or check who is enrolled and who has finished.
 metadata:
-  requires: authoring
+  requires: authoring:course
 ---
 
 # Assemble a Course
