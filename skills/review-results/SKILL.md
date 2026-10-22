@@ -77,8 +77,8 @@ filtering by the content they took.
 - `goals`: for each conversation in the run that had Goals, which were
   reached, when, and in the learner's own words.
 
-A Session the person can't reach answers "Session not found". Check the id
-with `list-sessions-tool`.
+A Session that's missing or out of the person's reach answers that it wasn't
+found, or isn't available. Check the id with `list-sessions-tool`.
 
 ## 4. Read a Conversation
 

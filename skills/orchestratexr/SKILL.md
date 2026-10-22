@@ -109,8 +109,8 @@ After editing something learners already use, remind the person to publish.
 
 - **"wasn't found, or isn't available to you"**: the id is wrong or out of
   reach. Check it with the list tool the message names. Don't repeat the call.
-- **"Unauthorized"**: the person can't use that tool or act on that record.
-  Stop and explain. Don't retry or look for a way around it.
+- **"Unauthorized"**: the person isn't signed in, or can't use that tool at
+  all. Stop and explain. Don't retry or look for a way around it.
 - **"Authoring tools are not enabled for this account"**: creating and
   changing content takes Authoring Tools, which OrchestrateXR support turns on
   per person. Support tickets, Projects and sign-in codes don't need them.
