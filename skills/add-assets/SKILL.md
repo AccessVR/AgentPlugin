@@ -133,11 +133,11 @@ reports done only once the asset is `processed`. Read
 ## Details, sharing and links
 
 `get-asset-tool {id}` returns the state, type, size, dimensions, duration,
-tags, owning organizations and links. `url` opens the asset's page for people
-who can see it. `share_url` is the link to send, given only to people who may
-share the asset. When it is null, say only someone who can share the asset
-can get it, and never offer `url` instead. No tool returns a download link
-for an asset's file.
+tags, links, and the organizations holding the asset that you belong to.
+`url` opens the asset's page for people who can see it. `share_url` is the
+link to send, given only to people who may share the asset. When it is null,
+say only someone who can share the asset can get it, and never offer `url`
+instead. No tool returns a download link for an asset's file.
 
 `update-asset-tool {id, name?, description?, tags?, visibility?, add_secret_emails?, remove_secret_emails?}`
 renames, describes, retags or shares an asset. `tags` replaces the whole

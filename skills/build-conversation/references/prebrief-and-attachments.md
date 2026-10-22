@@ -42,7 +42,9 @@ Links or files handed to the learner during the conversation.
 
 - Add: `add-character-attachment-tool {id, name, type, link?, asset_id?, description?}`.
   `type` is `link` (pass `link`) or `file` (pass the `asset_id` of an image or
-  file Asset; videos are refused). To upload a file first, read
+  file Asset that belongs to the Character's organization; videos are
+  refused, and so is another organization's Asset, even one for sale). To
+  upload a file first, read
   `get-skill-tool {name: "add-assets"}`.
 - Change: `update-character-attachment-tool {id, attachment_id, name?, link?, asset_id?, description?}`.
   A link can't become a file or the reverse; remove it and add a new one.
