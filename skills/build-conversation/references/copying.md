@@ -10,7 +10,7 @@ Find the source with `list-characters-tool {search}`,
 `list-personas-tool {search}` or `list-threads-tool {search}`.
 
 - `duplicate-character-tool {organization?, id, name?}` keeps the
-  configuration, documents, Guides and Goals. The copy uses the same Persona
+  configuration, attachments, documents, Guides and Goals. The copy uses the same Persona
   as the source, so editing that Persona changes both. Duplicate the Persona
   too if the copy needs its own behavior, then point the copy at it with
   `update-character-tool {id, persona_id}`.
@@ -30,7 +30,9 @@ What every copy has in common:
   the source or subscribes to it.
 - Content another organization shares with yours can be copied only when its
   owner allows subscribers to duplicate it, and only from its published
-  version. One never published can't be copied. Such a copy leaves out the
+  version. One never published can't be copied. Such a copy keeps the settings
+  your organization chose for the original. It leaves out the owner's
+  attachments, so add your own if the copy needs them. It also leaves out the
   owner's Guides, and the response's `warnings` name each one. Relay them, and
   attach your own Guides if the copy needs them (see the
   `knowledge-from-sources` skill).

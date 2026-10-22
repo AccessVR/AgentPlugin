@@ -147,7 +147,9 @@ The problems quote editor buttons. Fix them with these tools instead:
 - **Copy one.** `duplicate-experience-tool {organization?, id, new_name?}`
   makes a private, unpublished copy of every scene and layer. Pass
   `organization` when the person works in more than one. The copy can only
-  land in an organization that owns the Experience or subscribes to it.
+  land in an organization that owns the Experience or subscribes to it. A copy
+  in the owning organization keeps the attachments; a subscriber's copy keeps
+  that organization's own settings but leaves the owner's attachments behind.
 - **Roll back.** `list-experience-versions-tool {id}` lists every publish and
   restore, newest first.
   `restore-experience-version-tool {id, version_number}` replaces the draft
