@@ -102,6 +102,9 @@ Without a Report Type, conversations produce no report. Decide where it goes:
 5. `publish-report-type-tool {id}`. Until a Report Type is first published, it
    scores with its draft. After that, edits count only once it is published
    again. Publishing changes scoring for everyone using it, so restate its name.
+6. Publishing scores new conversations only. To score past ones under the
+   changed criteria, offer `run-conversation-report-tool {ids}`: read "Score
+   Conversations again" in the `review-results` skill.
 
 Before changing a Measurable with `update-measurable-tool`, read "Changing a
 Measurable that has results" in `references/scoring.md`.

@@ -1,13 +1,14 @@
 ---
 name: review-results
-description: Find out how learners did in OrchestrateXR. Use when someone asks how a person or a group performed, who finished an Experience, Thread or Course, what someone said in a Conversation, how a conversation was scored and against what criteria, which Goals a learner reached, or wants a report or a summary of results. Covers going from a person's name to their Sessions, Conversations and Course enrollments.
+description: Find out how learners did in OrchestrateXR. Use when someone asks how a person or a group performed, who finished an Experience, Thread or Course, what someone said in a Conversation, how a conversation was scored and against what criteria, which Goals a learner reached, wants a report or a summary of results, or wants past Conversations scored again after a Report Type changed. Covers going from a person's name to their Sessions, Conversations and Course enrollments.
 ---
 
 # Review results
 
 Everything here only reads, so every tool runs with `execute_read_tools` and
 needs no confirmation, except changing Course enrollments at the end of
-section 7. What comes back depends on who is asking:
+section 7 and scoring a Conversation again (section 8). What comes back
+depends on who is asking:
 
 - Learners see their own Sessions and Conversations.
 - Org Admins and Training Directors see their organizations' Sessions and
@@ -86,7 +87,9 @@ finds Conversations, newest first. `creator_id` is the person who took part
 (their user id). `status` is `active`, `ended` or `failed`. Then
 `get-conversation-tool {id}` returns the `transcript`, `duration`,
 `participant_name`, and `goals`: the Goals reached, the ones still on the
-learner's list, and a count of hidden Goals not yet reached.
+learner's list, and a count of hidden Goals not yet reached. For Org Admins
+and Training Directors it also returns `reports`, newest first, each with its
+`report_type`, `status` and written assessment in `content`.
 
 A Session records the Conversation that ended its run. When that run had
 Goals, `get-session-tool {id}` names each step's Conversation as
@@ -140,6 +143,27 @@ reads: they run with `execute_write_tools`, and each needs a yes first.
   It permanently deletes their completion records for that Course and can't
   be undone, so restate the Course and each learner by name and say so before
   calling. Sessions and Conversations are kept.
+
+## 8. Score Conversations again
+
+When a Report Type's criteria change, past Conversations keep the reports
+they were scored with. To score them under the new criteria, or to retry a
+report that `failed`:
+
+1. Make sure the Report Type's changes are published (`publish-report-type-tool`
+   in the `build-conversation` skill). Scoring always uses the published
+   version.
+2. Find the Conversations with `list-conversations-tool {character_id, status: "ended"}`.
+3. Say which Conversations and which Report Type, and get a yes. Scoring uses
+   AI again, though it isn't charged to the organization.
+4. `run-conversation-report-tool {ids, conversation_report_type_id?}` with
+   `execute_write_tools`, up to 20 at a time. Without
+   `conversation_report_type_id`, each one is scored by its own Report Type.
+5. The new reports start `pending`. Check them shortly with
+   `get-conversation-tool {id}`; the newest report is first.
+
+The earlier reports stay, and a Session keeps the report written when its run
+ended. Only Org Admins and Training Directors can do this.
 
 ## Summaries and reports
 
