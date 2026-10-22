@@ -59,8 +59,10 @@ patient's worry before answering").
 | `llm_transcript` | The model reading the transcript. |
 | `llm_perception` | The model reading the perception analysis. |
 | `computed` | A built-in metric, named in `computed_metric`: `duration_seconds`, `turn_count`, `learner_talk_ratio`, `mean_learner_utterance_length` or `goals_achieved`. |
-| `derived` | Other Measurables on the same Report Type, combined by `derived_formula`, for example `{"op":"mean","inputs":["q1","q2"]}`. The operations are `mean`, `median`, `sum`, `rate`, `count_where`, `weighted_mean` and `threshold_map`. |
+| `derived` | Other Measurables on the same Report Type, combined by `derived_formula`, for example `{"op":"mean","inputs":["q1","q2"]}`. The operations are `mean`, `median`, `sum`, `rate`, `count_where`, `weighted_mean` and `threshold_map`. `inputs` is `"*"` or a list of keys; `weighted_mean` needs the list. `threshold_map` takes `input` (one key) and `bounds`, a list of `[lower bound, label]` pairs. |
 
+A `computed` Measurable without a `computed_metric`, or a `derived` one without
+a formula the scorer can evaluate, is refused when you save it.
 ## Changing a Measurable that has results
 
 Read `has_results` with `get-measurable-tool {id}` first. Once results exist,

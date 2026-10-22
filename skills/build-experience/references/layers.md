@@ -7,8 +7,8 @@ layer's settings inside one `properties` object. A setting passed beside
 Write keys in snake_case. The camelCase spelling `get-scene-tool` returns
 inside hotspots, questions, answers and actions (`sceneId`, `answerText`,
 `backgroundColor`) is accepted too, so a list read from a scene can be sent
-back unchanged. A key the tools don't know is stored as written and ignored by
-the player, so check spelling.
+back unchanged. A key the tools don't know is refused, at any level, and the
+refusal lists the keys they take, so fix the spelling and send it again.
 
 ## Layer types
 
@@ -52,6 +52,7 @@ publishing. Pass the `questions` or `hotspots` list in the same call.
 | `hotspot_visibility` | Hotspot layers: `visible` or `hidden`. Hidden hotspots must be found by looking around. |
 | `always_show_labels` | Hotspot layers: show every hotspot's label. |
 | `questions` | Question layers: the full list, each existing question with its `id` (answers are recorded against it). Replaces the existing list. |
+| `acknowledge_action` | Question layers only: an action that runs once the learner has answered and moved on (the editor's On Acknowledge). Any type but 7. `null` removes it. |
 
 `display_type` by layer type. Any other combination is refused:
 
@@ -114,8 +115,9 @@ so every answer needs a `position`.
 
 ## Actions
 
-Hotspots, answers and a scene's end use one action shape: `{type, scene_id,
-time_stamp, preserve_view, event, url}`.
+Hotspots, answers, a question layer's `acknowledge_action` and a scene's end
+use one action shape: `{type, scene_id, time_stamp, preserve_view, event,
+url}`.
 
 | type | Does | Needs |
 | --- | --- | --- |

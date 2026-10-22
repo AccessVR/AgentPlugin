@@ -79,7 +79,8 @@ Position comes from the order of the array.
   once. It's the **Allow Retries** switch in the Course editor.
 - `debrief_enabled: true` runs the Course's debrief Character right after that
   item.
-- List each item once.
+- List each item once. A list that repeats an item is refused, and so is an
+  entry with a key the tool doesn't take.
 
 A new item gets the defaults: not gated, retries allowed with no limit, no
 debrief.
