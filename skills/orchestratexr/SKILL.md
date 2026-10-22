@@ -99,11 +99,17 @@ For Org Admins and Training Directors.
 
 ## Draft, then publish
 
-Edits change the draft. Learners keep the published version until the
-matching publish tool runs: `publish-experience-tool`,
+Edits to content change the draft. Learners keep the published version until
+the matching publish tool runs: `publish-experience-tool`,
 `publish-character-tool`, `publish-persona-tool`, `publish-thread-tool`,
 `publish-report-type-tool`, `publish-course-tool`, or `publish-guide-tool`.
 After editing something learners already use, remind the person to publish.
+
+Some settings skip the draft and apply the moment they're saved: visibility
+everywhere; a Character's recording, time limit, report type, prebrief,
+survey and contact collection; every Thread setting outside its lineup; and a
+Course's enrollment, dates and thumbnail. Each update tool's description lists which of its fields
+apply at once. Confirm those as changes to what learners get now.
 
 ## Reading refusals
 

@@ -101,7 +101,8 @@ Choose the scope with the person:
 in the organization instead. That is broad, and the Character isn't told the
 Guides' names; confirm it with the person.
 
-Attaching and removing Guides reaches the next conversation without publishing.
+Attaching and removing Guides, and turning `search_all_guides` on or off,
+reach the next conversation without publishing.
 A Guide doesn't need publishing to be searched; it needs to be `ready`.
 Publishing a Guide with `publish-guide-tool` is for showing it in the
 organization's docs, and is a separate decision.

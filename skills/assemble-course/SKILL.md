@@ -58,6 +58,13 @@ Change settings later with
 `update-course-tool {id, name?, visibility?, due_date_mode?, due_date?, due_days_after_enrollment?, self_enrollment_enabled?, debrief_enabled?, debrief_character_id?, thumbnail_asset_id?}`.
 Only the fields you pass change.
 
+On a published Course, most settings reach learners the moment you save
+them: `visibility`, `self_enrollment_enabled`, the start and end dates, the
+due-date fields and `thumbnail_asset_id`. Confirm those as changes to what
+learners get now. The debrief and the learning objectives wait for
+publishing, and so does the name on the Course's own screen, though a new
+name shows in lists at once.
+
 ## 3. Set the items
 
 `set-course-items-tool {id, items}` replaces the whole list. Each entry is
@@ -93,10 +100,11 @@ tool takes. Edit that list and send all of it back.
 
 ## 4. Publish
 
-`publish-course-tool {id}` makes the current settings and items what learners
-get. Until then, learners keep the published order, gating and retry settings,
-so a change to them doesn't lock or unlock anything for a learner yet. An
-unpublished Course shows learners nothing. Publishing a Course with no
+`publish-course-tool {id}` makes the current items, debrief, name and
+learning objectives what learners get. Until then, learners keep the
+published order, gating and retry settings, so a change to them doesn't lock
+or unlock anything for a learner yet. An unpublished Course shows learners
+nothing. Publishing a Course with no
 items is allowed, but nobody can start it, and the response warns you.
 
 After any change to a published Course, remind the person to publish again.

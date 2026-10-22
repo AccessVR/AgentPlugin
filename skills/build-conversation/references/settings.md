@@ -1,32 +1,34 @@
 # Character and Thread settings
 
-All of these change the draft. Learners get them once the Character or Thread
-is published, except where noted.
+Some of these change the draft and reach learners only when the Character or
+Thread is published. The rest apply the moment you save them, without
+publishing, so confirm those as changes to what learners get now. The
+**Applies** column says which.
 
 ## Character settings
 
 Set with `update-character-tool {id}` plus only the fields that change.
 `get-character-tool {id}` reads every one of them back.
 
-| Argument | What it does | Values |
-| --- | --- | --- |
-| `name`, `description` | Gallery name and card text. | text |
-| `conversational_context` | The scenario the Persona is given for every conversation with this Character. | text |
-| `custom_greeting` | The opening line. | text, or null for none |
-| `custom_greeting_type` | `literal` speaks the greeting word for word. `prompt` treats it as an instruction to improvise a fresh greeting each time. | `literal`, `prompt` |
-| `wait_for_participant_to_greet` | Stay silent until the learner speaks first. | true, false |
-| `persona_demeanor_key` | Conversational manner. `standard` runs the Persona as configured. `reticent` is guarded, so the learner must draw them out. `assertive` drives hard and resists being derailed. `reflective` asks structured questions and gives thinking time. | `standard`, `reticent`, `assertive`, `reflective` |
-| `max_call_duration` | Time limit for one conversation, in seconds. | 60 or more |
-| `enable_recording` | Record conversations. | true, false |
-| `visibility` | Who can run it. `private` (the default) is the organization's members only. `unlisted` is anyone with the link, including people without an account. | `private`, `public`, `unlisted`, `secret` |
-| `is_active` | Whether the Character can be used at all. | true, false |
-| `replica_id`, `persona_id` | Swap the Replica or the Persona. | ids |
-| `background_asset_id` | An image Asset shown behind the Replica. Null goes back to the Replica's own backdrop. | image Asset id, or null |
-| `conversation_report_type_id` | The Report Type that scores each conversation. Null removes it. | Report Type id, or null |
-| `document_retrieval_strategy` | Trade-off when searching the Character's knowledge. | `speed`, `balanced`, `quality` |
-| `prebrief_enabled`, `prebriefing_content`, `prebriefing_video_asset_id` | A screen shown before the conversation: HTML content, a video Asset, or both. | true/false, HTML, video Asset id |
-| `survey_url`, `survey_description`, `survey_button_text` | A link to an outside survey offered after the conversation. | URL, text |
-| `allows_subscriber_duplicates` | Let organizations that subscribe to this Character copy it. Takes effect at once, without publishing. | true, false |
+| Argument | What it does | Values | Applies |
+| --- | --- | --- | --- |
+| `name`, `description` | Gallery name and card text. | text | at once |
+| `conversational_context` | The scenario the Persona is given for every conversation with this Character. | text | on publish |
+| `custom_greeting` | The opening line. | text, or null for none | on publish |
+| `custom_greeting_type` | `literal` speaks the greeting word for word. `prompt` treats it as an instruction to improvise a fresh greeting each time. | `literal`, `prompt` | on publish |
+| `wait_for_participant_to_greet` | Stay silent until the learner speaks first. | true, false | on publish |
+| `persona_demeanor_key` | Conversational manner. `standard` runs the Persona as configured. `reticent` is guarded, so the learner must draw them out. `assertive` drives hard and resists being derailed. `reflective` asks structured questions and gives thinking time. | `standard`, `reticent`, `assertive`, `reflective` | on publish |
+| `max_call_duration` | Time limit for one conversation, in seconds. | 60 or more | at once |
+| `enable_recording` | Record conversations. | true, false | at once |
+| `visibility` | Who can run it. `private` (the default) is the organization's members only. `unlisted` is anyone with the link, including people without an account. | `private`, `public`, `unlisted`, `secret` | at once |
+| `is_active` | Whether the Character can be used at all. | true, false | at once |
+| `replica_id`, `persona_id` | Swap the Replica or the Persona. | ids | on publish |
+| `background_asset_id` | An image Asset shown behind the Replica. Null goes back to the Replica's own backdrop. | image Asset id, or null | on publish |
+| `conversation_report_type_id` | The Report Type that scores each conversation. Null removes it. | Report Type id, or null | at once |
+| `document_retrieval_strategy` | Trade-off when searching the Character's knowledge. | `speed`, `balanced`, `quality` | on publish |
+| `prebrief_enabled`, `prebriefing_content`, `prebriefing_video_asset_id` | A screen shown before the conversation: HTML content, a video Asset, or both. | true/false, HTML, video Asset id | at once |
+| `survey_url`, `survey_description`, `survey_button_text` | A link to an outside survey offered after the conversation. | URL, text | at once |
+| `allows_subscriber_duplicates` | Let organizations that subscribe to this Character copy it. | true, false | at once |
 
 ### Contact collection for people without an account
 
@@ -40,6 +42,8 @@ OrchestrateXR account.
 | `contact_send_reports` | Email the conversation report to the address they gave. |
 | `contact_webhook_enabled`, `contact_webhook_url` | Post the collected email to a URL. A Character with the webhook on and no URL can't be published. |
 
+These apply at once, without publishing.
+
 `participant_absent_timeout` can be read on `get-character-tool` but only
 OrchestrateXR support can change it.
 
@@ -47,6 +51,9 @@ OrchestrateXR support can change it.
 
 Set with `update-thread-tool {id}` plus the fields that change. The lineup is not set here; use
 `set-thread-characters-tool`.
+
+Every Thread setting applies at once, without publishing. Only the lineup and
+its slot settings wait for `publish-thread-tool`.
 
 | Argument | What it does |
 | --- | --- |

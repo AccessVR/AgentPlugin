@@ -26,8 +26,10 @@ execute_read_tools. Every other tool runs with execute_write_tools.
   or Asset from another organization is refused.
 - **Confirm every write.** Say which record and what changes, and get a yes.
   Before publishing or generating a video, restate the record by name.
-- **Draft, then publish.** Edits change the draft. Learners keep the published
-  version until the matching publish tool runs.
+- **Draft, then publish, mostly.** What a conversation says and who holds it
+  wait for the matching publish tool. Settings around it, such as visibility,
+  recording, time limit, report type, prebrief, survey and contact
+  collection, apply at once. `references/settings.md` marks which is which.
 - **Links.** Share only URLs a tool returned: `url` to work on a record,
   `share_url` to send it. Never build one from an id.
 - **"Wasn't found, or isn't available."** Check the id with the matching list

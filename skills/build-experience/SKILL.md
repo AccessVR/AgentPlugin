@@ -24,8 +24,10 @@ Every `list-`, `get-` and `validate-` tool here runs with
 - **Confirm every write.** Say which Experience, scene or layer changes and
   how, and get a yes. Restate the Experience's name before publishing,
   restoring a version or deleting.
-- **Draft, then publish.** Every edit changes the draft. Learners keep the
-  published version until `publish-experience-tool` runs.
+- **Draft, then publish, mostly.** Scenes, layers and how the player behaves
+  wait for `publish-experience-tool`. Visibility, the secret-access list,
+  Hide Launch Options and the instructor note apply at once, and a new name or
+  description shows at once wherever the Experience is listed.
 - **Links.** Share only URLs a tool returned. `url` opens the Experience to
   work on it, `preview_url` plays the current draft without signing in, and
   `share_url` is the link for learners, null until published. Treat
@@ -138,7 +140,9 @@ The problems quote editor buttons. Fix them with these tools instead:
   (an end action) or `update-layer-tool` (a hotspot or answer).
 - **Settings and sharing.**
   `update-experience-tool {id, name?, description?, visibility?, show_scene_list?, allow_skipping?, complete_message?, add_secret_emails?, remove_secret_emails?}`.
-  Secret-access list changes apply at once, without publishing.
+  `show_scene_list`, `allow_skipping` and `complete_message` wait for
+  publishing. `visibility` and the secret-access list apply at once, and a new
+  `name` or `description` shows at once wherever the Experience is listed.
 - **Preview Image.** `update-experience-tool {id, thumbnail_asset_id}` with
   an image asset. Find one with `list-assets-tool {asset_type: "image"}`, or
   make one with the `add-assets` skill and wait until it has finished
@@ -154,7 +158,9 @@ The problems quote editor buttons. Fix them with these tools instead:
   restore, newest first.
   `restore-experience-version-tool {id, version_number}` replaces the draft
   with that version and saves a backup of the current draft first. Learners
-  see the change only after the next publish.
+  get its scenes and layers only after the next publish, but its visibility
+  and instructor note come back at once, and its name and description show at
+  once in lists. Say so when confirming.
 - **Archive.** `delete-experience-tool {id}` removes it for learners at once,
   published version included. Only OrchestrateXR support can bring it back.
   Restate the name and confirm.
