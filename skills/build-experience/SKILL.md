@@ -17,6 +17,11 @@ Every `list-`, `get-` and `validate-` tool here runs with
 
 ## Before you start
 
+- **New work is designed first.** If this is a new Experience rather than a
+  change to one that exists, and the work has no Project yet, read
+  `design-training` before building, and offer to keep that thinking in a
+  Project (`plan-a-project`). Once the Experience exists, link it to its
+  Project. Skip this when the person would rather go straight to building.
 - **Organization.** `create-experience-tool` takes `organization` (id or
   exact name). If the person belongs to more than one organization and hasn't
   said which, ask, then pass it. Every Asset the Experience uses must belong

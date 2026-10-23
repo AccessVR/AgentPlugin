@@ -19,6 +19,11 @@ execute_read_tools. Every other tool runs with execute_write_tools.
 
 ## Before you start
 
+- **New work is designed first.** If this is a new Character or Thread rather than a
+  change to one that exists, and the work has no Project yet, read
+  `design-training` before building, and offer to keep that thinking in a
+  Project (`plan-a-project`). Once the Character or Thread exists, link it to its
+  Project. Skip this when the person would rather go straight to building.
 - **Organization.** The create tools take `organization` (id or exact name).
   If the person belongs to more than one organization and hasn't said which,
   ask, then pass it on every create. Everything a Character or Thread uses must

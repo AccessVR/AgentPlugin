@@ -22,7 +22,9 @@ follow it for what to ask and how to push back.
 
 ## Before you start
 
-- Projects don't need Authoring Tools. Building the deliverables does.
+- Starting a Project and building its deliverables are separate. Someone
+  who can plan in a Project may not be able to build every kind of content
+  it calls for.
 - If a tool answers that the organization "doesn't have Projects turned on",
   OrchestrateXR support can turn it on. Offer a support ticket.
 - Every write here runs with `execute_write_tools`; reads run with

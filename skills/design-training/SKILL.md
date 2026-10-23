@@ -1,6 +1,6 @@
 ---
 name: design-training
-description: Work out what to build before building it, for training or for any problem OrchestrateXR content could help with. Use when someone describes a problem, asks for training, a course, a scenario or a role-play, wants help writing a brief's Outcomes, Audience or Requirements, or asks whether training will fix something. Covers finding what people need to do differently, finding out why they don't do it already, saying plainly when part of the problem isn't one training can fix, writing objectives at the right level of thinking, choosing between Experiences, Characters, Threads and Courses, and planning practice, feedback and scoring.
+description: Work out what to build before building it, for training or for any problem OrchestrateXR content could help with. Use when someone describes a problem, asks for training, a course, a scenario or a role-play, wants help writing a brief's Outcomes, Audience or Requirements, or asks whether training will fix something. Covers finding what people need to do differently, finding out why they don't do it already, saying plainly when part of the problem isn't one training can fix, writing objectives at the right level of thinking, choosing between Experiences, Characters, Threads and Courses, planning practice, feedback and scoring, and keeping the thinking in a Project so it outlasts the conversation.
 ---
 
 # Design training
@@ -21,6 +21,22 @@ unless they do. Ask the questions it raises in plain words.
 
 Work through the steps as a conversation, a few questions at a time, never as
 a form. A step the person has already answered needs no question.
+
+## Keep the thinking in a Project
+
+Design work that lives only in a conversation is lost when the conversation
+ends, and the people the work answers to never see it. A Project keeps it: its
+brief holds the problem, the behaviors, the barriers and the objectives, next
+to the people it answers to, the source material behind it and the content it
+produces. Writing it down is part of designing it.
+
+- If the work already has a Project, find it with `list-projects-tool` and
+  write into it as you go.
+- Otherwise, once you understand the problem (step 1), offer in a sentence to
+  start a Project to hold it. If they agree, create it with
+  `create-project-tool` following `plan-a-project`, and draft each section of
+  the brief as the conversation answers it rather than all at the end.
+- If they'd rather not, carry on. Step 8 says what to give them instead.
 
 ## 1. Take the problem as they state it
 
@@ -152,4 +168,5 @@ each section from the conversation, show the person, and save it with
   agreed to change. If there are concerns from step 4 the person chose to set
   aside, add a section titled "Outside the training" that records them.
 
-Outside a Project, give the same summary in the conversation before building.
+If they chose not to keep it in a Project, give the same summary in the
+conversation before building.

@@ -35,6 +35,14 @@ decide what it reaches. Read this once, then the guide for the job.
 - **Projects**: where an organization plans content: a brief, the people it
   answers to, the source material behind it, and the content it produces.
 
+## Starting something new
+
+When someone wants something new built, design it before building it. Read
+`design-training`, and offer to keep the thinking in a Project
+(`plan-a-project`), so the brief, the people it answers to and the source
+material stay with the content it produces. Skip it for a change to something
+that already exists, or when the person would rather go straight to building.
+
 ## Finding and running tools
 
 - For a job that takes several tools, read its guide first with

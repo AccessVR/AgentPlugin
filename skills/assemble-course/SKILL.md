@@ -12,6 +12,11 @@ learner's enrollment in a Course is an Assignment.
 
 ## Before you start
 
+- **New work is designed first.** If this is a new Course rather than a
+  change to one that exists, and the work has no Project yet, read
+  `design-training` before building, and offer to keep that thinking in a
+  Project (`plan-a-project`). Once the Course exists, link it to its
+  Project. Skip this when the person would rather go straight to building.
 - Org Admins and Training Directors build Courses, in organizations with
   Learning Management turned on. If `create-course-tool` answers
   "Unauthorized", either the person's role can't build Courses there or
