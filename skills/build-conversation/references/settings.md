@@ -22,7 +22,7 @@ Set with `update-character-tool {id}` plus only the fields that change.
 | `max_call_duration` | Time limit for one conversation, in seconds. Does nothing while `time_limit_enabled` is off. | 60 or more | at once |
 | `show_countdown` | Show the learner a countdown clock. Only appears while `time_limit_enabled` is on. | true, false | at once |
 | `enable_recording` | Record conversations. | true, false | at once |
-| `visibility` | Who can run it. `private` (the default) is the organization's members only. `unlisted` is anyone with the link, including people without an account. | `private`, `public`, `unlisted`, `secret` | at once |
+| `visibility` | Who can run it. `private` (the default) is the organization's members only. `unlisted` is anyone with the link, including people without an account. `secret` is a list of email addresses. Only OrchestrateXR support staff can make one `public`. | `private`, `unlisted`, `secret` | at once |
 | `is_active` | Whether the Character can be used at all. | true, false | at once |
 | `replica_id`, `persona_id` | Swap the Replica or the Persona. | ids | on publish |
 | `background_asset_id` | An image Asset shown behind the Replica. Null goes back to the Replica's own backdrop. | image Asset id, or null | on publish |

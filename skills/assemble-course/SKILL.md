@@ -44,7 +44,8 @@ version of each item, so point out any item that has never been published.
 - Only `name` is required. Propose the rest from the conversation rather than
   asking field by field.
 - `visibility`: `private` (the default), `unlisted` (reachable by link and by
-  members, kept out of the Courses gallery), `public`, or `secret`.
+  members, kept out of the Courses gallery), or `secret`. Only OrchestrateXR
+  support staff can make a Course `public`.
 - Due dates: `due_date_mode` is `none`, `fixed` (send `due_date`), or
   `relative` (send `due_days_after_enrollment`, at least 1). Use `relative`
   when people join on a rolling basis.

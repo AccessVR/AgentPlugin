@@ -1,6 +1,6 @@
 {
   "name": "orchestratexr",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Build and run immersive training in OrchestrateXR from Gemini CLI: Experiences, AI Characters and Threads, Courses, Assets, and Guides, with step-by-step skills for each job.",
   "mcpServers": {
     "orchestratexr": {
