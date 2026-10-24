@@ -88,6 +88,27 @@ that already exists, or when the person would rather go straight to building.
 For Org Admins and Training Directors.
 
 - `list-users-tool {search}` finds a person and their `id`.
+- **Bringing people in, changing roles, taking people out** (run with
+  `execute_write_tools`):
+  - `invite-to-organization-tool {name, email, role, organization?}`. A new
+    address gets an account at once and a welcome email. An existing account
+    is asked to join and becomes a member on accepting.
+  - `change-organization-role-tool {user_id, role, organization?}` replaces
+    the member's role.
+  - `remove-from-organization-tool {user_id, organization?, reassign_content_to_user_id?}`
+    takes someone out and keeps their account. If they own content there, the
+    refusal names the members who can take it over.
+
+  Each sends email or changes what someone can reach, so restate the person,
+  the organization and the role by name first. A refused role comes back with
+  the roles this person may give.
+- **Invitations not yet accepted.** `list-organization-invitations-tool {organization?, include_closed?}`
+  (run with `execute_read_tools`) lists them.
+  `resend-organization-invitation-tool {email, organization?}` and
+  `revoke-organization-invitation-tool {email, organization?}` follow up (run
+  with `execute_write_tools`).
+- `organization` (id or exact name) says which organization, when the person
+  manages people in more than one. Left out, it's the one they're working in.
 - A **Group** is a named set of an organization's people, such as a class or
   cohort, that is enrolled in Courses together. `list-groups-tool {organization?, search?}`
   finds Groups, and `get-group-tool {id}` lists one Group's members (both run
