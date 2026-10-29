@@ -61,7 +61,7 @@ particular Voice on the Persona, offer to file a ticket with
 ## 3. Write the Persona
 
 Reuse one when it fits (`list-personas-tool {search}`). Otherwise agree the prompt with the human, then call
-`create-persona-tool {organization?, name, system_prompt, description?, default_replica_id?}`.
+`create-persona-tool {organization?, name, system_prompt, description?, default_replica_id?, tags?}`.
 
 - `system_prompt` says who the person is and how they behave. Leave out the
   platform's guardrails; they are added automatically.
@@ -70,7 +70,8 @@ Reuse one when it fits (`list-personas-tool {search}`). Otherwise agree the prom
 - A new Persona is live from the start. Later edits with
   `update-persona-tool {id, system_prompt?, name?, description?}` stay in the
   draft until `publish-persona-tool {id}`, which reaches every Character on
-  that Persona at its next conversation.
+  that Persona at its next conversation. `update-persona-tool {id, tags}` is
+  the exception: the tag list is replaced at once, without publishing.
 
 ## 4. Create the Character
 

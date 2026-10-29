@@ -75,7 +75,7 @@ as for a file.
 ## 3. Write one directly
 
 For material the person gives you in the conversation, or that you write with
-them: `create-guide-tool {organization?, name, markdown, intro?, keywords?}`.
+them: `create-guide-tool {organization?, name, markdown, intro?, keywords?, tags?}`.
 It is ready at once, and search picks it up shortly after.
 
 ## 4. Name it for what it holds

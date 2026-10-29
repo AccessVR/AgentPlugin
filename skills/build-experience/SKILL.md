@@ -60,7 +60,7 @@ Every `list-`, `get-` and `validate-` tool here runs with
    what happens in each scene, how learners move between scenes, and how the
    Experience ends.
 2. **Create the draft.**
-   `create-experience-tool {organization?, name, description?, visibility?, show_scene_list?, allow_skipping?, complete_message?, thumbnail_asset_id?}`.
+   `create-experience-tool {organization?, name, description?, visibility?, show_scene_list?, allow_skipping?, complete_message?, thumbnail_asset_id?, tags?}`.
    It starts private, unpublished and empty. `visibility` is `private`,
    `public`, `unlisted` or `secret`. `thumbnail_asset_id` is the Preview
    Image shown on the Experience's card and in share previews. It must be an
@@ -144,10 +144,11 @@ The problems quote editor buttons. Fix them with these tools instead:
   `warnings` name them. Point each at another scene with `update-scene-tool`
   (an end action) or `update-layer-tool` (a hotspot or answer).
 - **Settings and sharing.**
-  `update-experience-tool {id, name?, description?, visibility?, show_scene_list?, allow_skipping?, complete_message?, add_secret_emails?, remove_secret_emails?}`.
+  `update-experience-tool {id, name?, description?, visibility?, show_scene_list?, allow_skipping?, complete_message?, add_secret_emails?, remove_secret_emails?, tags?}`.
   `show_scene_list`, `allow_skipping` and `complete_message` wait for
-  publishing. `visibility` and the secret-access list apply at once, and a new
-  `name` or `description` shows at once wherever the Experience is listed.
+  publishing. `visibility`, the secret-access list and `tags` apply at once,
+  and a new `name` or `description` shows at once wherever the Experience is
+  listed. `tags` replaces the whole list; a new name creates the tag.
 - **Preview Image.** `update-experience-tool {id, thumbnail_asset_id}` with
   an image asset. Find one with `list-assets-tool {asset_type: "image"}`, or
   make one with the `add-assets` skill and wait until it has finished

@@ -13,6 +13,7 @@ Set with `update-character-tool {id}` plus only the fields that change.
 | Argument | What it does | Values | Applies |
 | --- | --- | --- | --- |
 | `name`, `description` | Gallery name and card text. | text | at once |
+| `tags` | The whole tag list, by name. Replaces the tags it had; a new name creates the tag, and an empty list removes them all. `create-character-tool` takes it too. | list of names | at once |
 | `conversational_context` | The scenario the Persona is given for every conversation with this Character. | text | on publish |
 | `custom_greeting` | The opening line. | text, or null for none | on publish |
 | `custom_greeting_type` | `literal` speaks the greeting word for word. `prompt` treats it as an instruction to improvise a fresh greeting each time. | `literal`, `prompt` | on publish |
@@ -59,7 +60,7 @@ its slot settings wait for `publish-thread-tool`.
 
 | Argument | What it does |
 | --- | --- |
-| `name`, `description`, `visibility` | As for a Character. |
+| `name`, `description`, `visibility`, `tags` | As for a Character. `create-thread-tool` takes `tags` too. |
 | `conversation_report_type_id` | The Report Type that scores the whole run. Null removes it. |
 | `prebrief_enabled`, `prebriefing_content`, `prebriefing_video_asset_id` | A prebrief shown before the first conversation. If a Character in the lineup has its own prebrief, both show, the Thread's first. |
 | `survey_enabled`, `survey_url`, `survey_description`, `survey_button_text` | The end-of-Thread survey. |
