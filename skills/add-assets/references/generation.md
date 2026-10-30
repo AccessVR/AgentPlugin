@@ -62,9 +62,10 @@ To play it in an Experience, add it to a scene as an audio layer with
 2. Agree the script (up to 5,000 characters), the Replica and the voice. The
    script is read in the Replica's linked Voice when it has one, otherwise in
    its own voice. `voice_id` picks another Voice; `use_replica_voice: true`
-   uses the Replica's own voice. Tags such as `[whispers]` direct a Voice,
-   but the Replica's own voice reads them aloud. A Voice's narration must
-   run at least 3 seconds.
+   uses the Replica's own voice. To change the Replica's linked Voice for
+   every video, its owners can use `update-replica-tool {id, voice_id}`.
+   Tags such as `[whispers]` direct a Voice, but the Replica's own voice
+   reads them aloud. A Voice's narration must run at least 3 seconds.
 3. Tokens are charged by the script's length. Restate the Replica, the voice
    and the script, say it spends tokens, and get a yes.
 4. `generate-replica-video-tool {organization?, replica_id, script, name?, voice_id?, use_replica_voice?, transparent_background?}`.

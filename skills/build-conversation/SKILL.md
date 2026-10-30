@@ -53,10 +53,17 @@ Replicas and your organization's own. `get-replica-tool {id}` shows its training
 status and thumbnails. A Replica still being prepared can be put on a Character,
 but the Character can't be published until it's ready.
 
+`update-replica-tool {id, name?, sex?, age_group?, ethnicity?, weight_class?, voice_id?, tags?}`
+corrects a Replica's name or characteristics, or retags it. Only its creator
+and the Training Directors and Org Admins of the organization that owns it can;
+stock Replicas belong to OrchestrateXR.
+
 The Voice a Persona speaks in is set by OrchestrateXR support.
 `list-voices-tool {search?}` shows the Voices available. If the person wants a
 particular Voice on the Persona, offer to file a ticket with
 `create-support-ticket-tool {subject, description}`.
+`update-voice-tool {id, name?, description?, tags?}` renames, describes or
+retags a Voice the organization made; the sound itself can't be changed.
 
 ## 3. Write the Persona
 
