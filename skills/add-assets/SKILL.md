@@ -1,6 +1,6 @@
 ---
 name: add-assets
-description: Get images, 360° panoramas, video, audio and documents into the OrchestrateXR asset library. Covers uploading a file from the chat or computer, importing one from a public link, generating an AI image or a 360° skybox, generating narration (text-to-speech voiceover audio) from a script, and generating a Replica video from a script. Use when someone needs a scene backdrop, a voiceover or any media file, wants to find an asset, check that it finished processing, share it, see where it is used, or recycle it.
+description: Get images, 360° panoramas, video, audio and documents into the OrchestrateXR asset library. Covers uploading a file from the chat or computer, importing one from a public link, generating an AI image or a 360° skybox, generating a short AI video from a prompt or an image, generating narration (text-to-speech voiceover audio) from a script, and generating a Replica video from a script. Use when someone needs a scene backdrop, a voiceover or any media file, wants to find an asset, check that it finished processing, share it, see where it is used, or recycle it.
 metadata:
   requires: authoring:asset
 ---
@@ -120,12 +120,14 @@ Experience that uses it. `state_message` gives the reason when there is one.
    asset into the places that used the old one. If it fails a second time,
    offer the person a support ticket instead of retrying again.
 
-## Generate an image, a 360° backdrop, narration or a Replica video
+## Generate an image, a 360° backdrop, a video, narration or a Replica video
 
 `generate-asset-image-tool` makes flat images and 360° panoramas for scene
-backdrops. `generate-narration-tool` reads a script aloud in a Voice and
-saves it as an audio asset. `generate-replica-video-tool` makes a
-talking-head video of a Replica reading a script. All three spend tokens,
+backdrops. `generate-asset-video-tool` makes a short video from a prompt,
+optionally starting from a library image. `generate-narration-tool` reads a
+script aloud in a Voice and saves it as an audio asset.
+`generate-replica-video-tool` makes a talking-head video of a Replica
+reading a script. All four spend tokens,
 take a while, and are checked with `get-asset-generation-status-tool`, which
 reports done only once the asset is `processed`. Read
 `references/generation.md` before calling any of them.

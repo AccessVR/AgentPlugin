@@ -1,6 +1,6 @@
-# Generating images, narration and Replica videos
+# Generating images, videos, narration and Replica videos
 
-All three spend the organization's tokens. Confirm before every call, restating
+All four spend the organization's tokens. Confirm before every call, restating
 what will be made and that it spends tokens. The balance is in
 `list-organizations-tool {scope: "mine"}` under `consumables.tokens.balance`,
 for people who manage the organization.
@@ -31,6 +31,42 @@ which is what publishing needs; `ready` shows in the editor but is still
 processing. A failed image releases its tokens. Read `failure_reason` before
 trying again.
 
+## Generate a video
+
+A short video made from a prompt: a forklift crossing a warehouse, a dock
+door rolling up. It can start from a library image and land on another. It
+lands in the library as a flat `video` asset (not 360°) to play on a screen in
+a scene, as a media layer, or in a Guide.
+
+`generate-asset-video-tool {organization?, prompt, model?, resolution?, duration?, aspect?, sound?, start_asset_id?, end_asset_id?}`
+
+- `model` is `kling-v3` (default), `kling-v3-turbo` or `kling-v4`.
+  `kling-v3` alone can be silent and make `4k`; `kling-v4` alone runs past
+  15 seconds, up to 30, and makes `21:9`.
+- `resolution` is `720p`, `1080p` (default) or `4k`. `duration` is whole
+  seconds, 3 to 15 (30 for `kling-v4`), default 5.
+- `aspect` is `16:9` (default), `9:16` or `1:1`. A start frame sets the shape,
+  so leave `aspect` out with one.
+- `start_asset_id` and `end_asset_id` are library images. An end frame needs
+  a start frame, and `kling-v3-turbo` doesn't take one.
+- The prompt describes what happens: the subject, the action, how the camera
+  moves, the light and the sound.
+
+The price is known before it starts, from the model, resolution, sound and
+length. A 10-second 1080p `kling-v3` video with sound is 48 tokens; a
+30-second `kling-v4` at 1080p is 202. State the
+model, resolution, length, sound and the token cost, and get a yes. If you
+don't know the cost, call once the person has agreed to the settings, and
+report the `tokens_reserved` it returns.
+
+"AI video generation is turned off" means the organization has switched it
+off; an organization admin can turn it back on. Don't retry.
+
+Then `get-asset-generation-status-tool {ids}` with the returned `id`, every
+30 seconds or so, until `all_done`. A video takes several minutes, and a long
+one more. A failed video releases its tokens; read `failure_reason` before
+trying again.
+
 ## Generate narration
 
 Narration is a script read aloud in a Voice: a voiceover for a scene, a
@@ -41,8 +77,9 @@ asset.
    Voice is accepted.
 2. Agree the script (up to 5,000 characters) and the Voice. Tags such as
    `[whispers]` or `[excited]` direct the reading.
-3. It costs one token per character of the script. Restate the Voice, the
-   script and the token count, and get a yes.
+3. It costs about 6 tokens per 1,000 characters of the script, and at least
+   1. Restate the Voice and the script, say it spends tokens, and get a yes.
+   The tool returns the exact count as `tokens_charged`.
 4. `generate-narration-tool {organization?, voice_id, script, name?}`.
 5. The tokens are charged once the audio is spoken. "Not enough tokens", or
    a reading that fails, leaves nothing behind and charges nothing; tell the

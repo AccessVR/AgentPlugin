@@ -1,7 +1,7 @@
 {
   "name": "orchestratexr",
   "displayName": "OrchestrateXR",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Build and run immersive training in OrchestrateXR from Cursor: Experiences, AI Characters and Threads, Courses, Assets, and Guides, with step-by-step skills for each job.",
   "author": {
     "name": "OrchestrateXR",
