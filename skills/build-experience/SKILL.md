@@ -50,8 +50,8 @@ Every `list-`, `get-` and `validate-` tool here runs with
    state and any edit `lock`.
 3. `get-scene-tool {id}` returns one scene's timing, end action and every
    layer with its `id`. You need the layer id to change or delete a layer.
-   The scene's own settings come back under the names `update-scene-tool`
-   takes. Hotspots, questions, answers and actions come back with camelCase
+   The scene's own settings, `skybox_asset_id` included, come back under
+   the names `update-scene-tool` takes. Hotspots, questions, answers and actions come back with camelCase
    keys, which the write tools accept as they are.
 
 ## Build a new Experience
@@ -90,10 +90,7 @@ Every `list-`, `get-` and `validate-` tool here runs with
 7. **Validate.** `validate-experience-tool {id}`, where `id` is the
    Experience's id. It has no `experience_id` argument.
 8. **Explain the problems** by scene and layer name, then fix them (see
-   below) and validate again until it returns `valid: true`. Its `warnings`
-   list go-to-scene actions whose scene was deleted. They don't block
-   publishing, but the learner's choice leads nowhere: point each at another
-   scene.
+   below) and validate again until it returns `valid: true`.
 9. **Publish.** Restate the Experience's name, confirm, then
    `publish-experience-tool {id}`. It returns the published version number and
    a `preview_url` for that version. Get the learner link from
@@ -111,6 +108,7 @@ The problems quote editor buttons. Fix them with these tools instead:
 | A hotspot has no action | Send the layer's complete hotspot list with `update-layer-tool`, giving that hotspot an action. |
 | Open URL is set but the address is missing | Give the action a `url`. |
 | A question layer has no questions, or a question has no answers | Add them with `update-layer-tool`, or delete the layer. |
+| An action goes to a scene that has been deleted or isn't in this Experience | Point it at another scene: `update-scene-tool` for an end action, `update-layer-tool` for a hotspot, an answer or an `acknowledge_action`. |
 | An asset is not ready for publishing | Wait for it to process (`get-asset-tool {id}` until `state` is `processed`). If it failed, retry it with `retry-asset-processing-tool {id}`, or swap in another asset. |
 
 ## Change an existing Experience
@@ -125,7 +123,8 @@ The problems quote editor buttons. Fix them with these tools instead:
   `questions` replace the whole list: read the scene, edit the list, and
   send all of it back with each item's `id`. Learners' answers are recorded
   against a question's `id`, so a question sent without one starts a new
-  answer history unless its text matches exactly one existing question. The
+  answer history unless its text matches exactly one existing question, in
+  the layer or in the same card. The
   response's `removed` lists what the new list left out; tell the person.
   A card deeper than three levels comes back as `{id, truncated: true}`:
   send it back unchanged and the card is kept. A layer's `event_type` can't
@@ -141,8 +140,9 @@ The problems quote editor buttons. Fix them with these tools instead:
 - **Remove a scene.** `delete-scene-tool {id}`. The initial scene can't be
   removed while other scenes remain: set another `initial_scene_id` first.
   Actions that go to the scene are left pointing at it, and the response's
-  `warnings` name them. Point each at another scene with `update-scene-tool`
-  (an end action) or `update-layer-tool` (a hotspot or answer).
+  `warnings` name them. Publishing is refused until each points at another
+  scene: use `update-scene-tool` (an end action) or `update-layer-tool` (a
+  hotspot, an answer or an `acknowledge_action`).
 - **Settings and sharing.**
   `update-experience-tool {id, name?, description?, visibility?, show_scene_list?, allow_skipping?, complete_message?, add_secret_emails?, remove_secret_emails?, tags?}`.
   `show_scene_list`, `allow_skipping` and `complete_message` wait for
