@@ -56,7 +56,9 @@ and `height`; a 360° panorama is twice as wide as it is tall.
 | Is a person speaking a script to camera | Generate a Replica video. |
 
 You can't make HTTP requests when you have no shell, code sandbox or fetch
-tool that can reach the upload address, as in a plain chat on claude.ai.
+tool that can reach the upload address, as in a plain chat on claude.ai. A
+sandbox can have a shell and still be kept from the upload address; see
+"When the upload is refused" below.
 Never pass a file's contents through a tool argument.
 
 ## Import from a link
@@ -91,6 +93,28 @@ Never pass a file's contents through a tool argument.
 4. Wait for processing (below).
 
 Until step 3 the asset is hidden: list and get tools don't find it.
+
+### When the upload is refused
+
+Tell the two kinds of failure apart before doing anything else.
+
+- **No answer from the upload address at all.** curl exits with code 56,
+  prints `CONNECT tunnel failed` or a status of `000`, or the sandbox says a
+  proxy refused the host or the host isn't allowed. Your sandbox can't reach
+  the upload address, and retrying won't change that. Don't retry, and don't
+  try another way around it. Tell the person the sandbox can't reach the
+  upload host, name the host from `upload_url` (for example
+  `orchestrate-vapor-prod.s3-accelerate.amazonaws.com`), and offer two ways
+  on:
+  - Allow that host in the assistant's network settings, then ask you to try
+    again. In Claude, that's **Settings > Capabilities**, or **Organization
+    settings > Capabilities** for an admin on a Team or Enterprise plan.
+  - Upload the file themselves on the Assets screen, then find it with
+    `list-assets-tool`.
+- **An answer from the upload address.** A `403` or `400` with an XML error,
+  such as `AccessDenied` or `Request has expired`, means the address expired
+  or the headers didn't match what `start-asset-upload-tool` returned. Start
+  again from step 1, sending exactly the returned headers.
 
 ## Wait for processing
 
