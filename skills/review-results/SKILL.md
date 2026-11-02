@@ -70,7 +70,12 @@ filtering by the content they took.
   `thread_rubric` when a Report Type scores the whole Thread run,
   `thread_summary` when none does), a `status` (`pending`, `completed` or
   `failed`), and its written assessment in `content`. A `pending` report is
-  still being written: say so and offer to check again shortly.
+  still being written: say so and offer to check again shortly. Its
+  `measurables` list each criterion it scored: `key`, `label`, `state`
+  (`scored`, `not_applicable`, `insufficient_data` or `error`), `value` as
+  the report shows it, `value_numeric` for comparing and averaging, and the
+  scorer's `rationale`. Only a `scored` one has a value; never count the
+  others as zero. An unscored summary has none.
 - `pdf_download_url`, on the Session and on each finished report. These links
   expire after about an hour. Fetch the Session again for a fresh one rather
   than reusing an old link.
@@ -106,8 +111,10 @@ with that Character and match the time to the Session's `started_at`.
 2. `get-report-type-tool {id}` lists every Measurable it scores with.
 3. `get-measurable-tool {id}` gives one criterion's definition and guidance.
 
-Quote the report's own words when explaining a result. Don't invent a score
-or a criterion the report doesn't contain.
+Start from the report's `measurables` in `get-session-tool {id}`: each one's
+`rationale` says why it scored as it did. Quote the report's own words when
+explaining a result. Don't invent a score or a criterion the report doesn't
+contain.
 
 ## 6. Goals
 
