@@ -1,6 +1,6 @@
 ---
 name: review-results
-description: Find out how learners did in OrchestrateXR. Use when someone asks how a person or a group performed, who finished an Experience, Thread or Course, what someone said in a Conversation, how a conversation was scored and against what criteria, which Goals a learner reached, wants a report or a summary of results, or wants past Conversations scored again after a Report Type changed. Covers going from a person's name to their Sessions, Conversations and Course enrollments.
+description: Find out how learners did in OrchestrateXR. Use when someone asks how a person or a group performed, who finished an Experience, Thread or Course, what someone said in a Conversation, how a conversation was scored and against what criteria, which Goals a learner reached, what answers a Character's Objectives collected, which Guardrails a conversation broke, wants a report or a summary of results, or wants past Conversations scored again after a Report Type changed. Covers going from a person's name to their Sessions, Conversations and Course enrollments.
 ---
 
 # Review results
@@ -92,7 +92,9 @@ finds Conversations, newest first. `creator_id` is the person who took part
 (their user id). `status` is `active`, `ended` or `failed`. Then
 `get-conversation-tool {id}` returns the `transcript`, `duration`,
 `participant_name`, and `goals`: the Goals reached, the ones still on the
-learner's list, and a count of hidden Goals not yet reached. For Org Admins
+learner's list, and a count of hidden Goals not yet reached. It also returns
+`objectives` and `ended_by` (see "Answers a Character's Objectives collected")
+and `guardrail_violations` (see "Guardrails that fired"). For Org Admins
 and Training Directors it also returns `reports`, newest first, each with its
 `report_type`, `status` and written assessment in `content`.
 
@@ -121,6 +123,26 @@ contain.
 `list-goals-tool {character_id}` lists the Goals assigned to a Character, in
 order, and whether each shows on the learner's list. What a learner reached
 is in the `goals` of `get-conversation-tool` and `get-session-tool`.
+
+### Answers a Character's Objectives collected
+
+A Character with an Objective Set records the answers each Objective collects,
+such as an interviewer's notes on a candidate. `get-conversation-tool {id}`
+returns them in `objectives.met`, with who ended the call in `ended_by`. Across
+many conversations, `list-objective-results-tool {character_id or objective_set_id, from?, to?, thread_id?}`
+lists one row per conversation, newest first. An answer that is null wasn't
+found in the conversation. These answers can be personal: share them only with
+people who may read those conversations.
+
+### Guardrails that fired
+
+`get-conversation-tool {id}` lists each time one of the Persona's Guardrails
+fired in `guardrail_violations`, with the Guardrail's name, the seconds from the
+start, and the reason when known. To see where one Guardrail fires across
+conversations, `get-guardrail-tool {id}` returns its latest firings. Both show
+only conversations the person may open. A firing means the conversation was
+flagged, not that the learner did something wrong: read the transcript around
+it before drawing a conclusion.
 
 ## 7. Course progress
 

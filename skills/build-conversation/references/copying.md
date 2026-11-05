@@ -10,12 +10,17 @@ Find the source with `list-characters-tool {search}`,
 `list-personas-tool {search}` or `list-threads-tool {search}`.
 
 - `duplicate-character-tool {organization?, id, name?}` keeps the
-  configuration, attachments, documents, Guides and Goals. The copy uses the same Persona
-  as the source, so editing that Persona changes both. Duplicate the Persona
+  configuration, attachments, documents, Guides and Goals, its Objectives choice
+  and whether it can end the conversation. The copy uses the same Persona
+  as the source, so editing that Persona changes both. It also shares the
+  source's Objective Set: to change the copy's agenda alone,
+  `duplicate-objective-set-tool {id, name?}` and choose the copy with
+  `set-character-objectives-tool`. Duplicate the Persona
   too if the copy needs its own behavior, then point the copy at it with
   `update-character-tool {id, persona_id}`.
 - `duplicate-persona-tool {organization?, id, name?}` keeps the prompt,
-  settings, documents and Guides.
+  settings, documents, Guides, Guardrails and Default Objectives. The Guardrails
+  are the same library records, so a change to one reaches both Personas.
 - `duplicate-thread-tool {organization?, id, name?}` keeps the lineup and its
   per-slot settings, and makes the copy private. The copy plays the same
   Characters as the source.

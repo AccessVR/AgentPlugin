@@ -123,7 +123,10 @@ content:
   setting, hotspots for the steps, and questions at the decisions that matter.
 - **Judgment and talking with people**, such as de-escalation, feedback,
   sales or interviews: a Character to practice with, scored by a Report Type,
-  with Goals for what the learner should achieve. A Thread puts several
+  with Goals for what the learner should achieve. When the Character has to
+  cover set ground, such as an interviewer's topics, give it an Objective Set
+  as its agenda. Guardrails on its Persona keep it in role and flag the moment
+  a learner pulls it out. A Thread puts several
   Characters in order when the situation unfolds over more than one person.
 - **The feeling of the moment**, when pressure or emotion is the barrier: 360°
   scenes of the real place, and Characters who push back the way people do.

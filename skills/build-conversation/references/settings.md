@@ -32,6 +32,9 @@ Set with `update-character-tool {id}` plus only the fields that change.
 | `prebrief_enabled`, `prebriefing_content`, `prebriefing_video_asset_id` | A screen shown before the conversation: HTML content, a video Asset, or both. | true/false, HTML, video Asset id | at once |
 | `survey_url`, `survey_description`, `survey_button_text` | A link to an outside survey offered after the conversation. | URL, text | at once |
 | `allows_subscriber_duplicates` | Let organizations that subscribe to this Character copy it. | true, false | at once |
+| `can_end_conversation` | Let the Character say goodbye and end the conversation itself, including when the learner asks to stop. | true, false | on publish |
+| `end_conversation_when` | When to end it, in plain words. Only used while `can_end_conversation` is on. | text, or null | on publish |
+| `end_after_last_objective` | End once the Character's last Objective is met. Only used while `can_end_conversation` is on. | true, false | on publish |
 
 ### Contact collection for people without an account
 
