@@ -78,7 +78,9 @@ filtering by the content they took.
   others as zero. An unscored summary has none.
 - `pdf_download_url`, on the Session and on each finished report. These links
   expire after about an hour. Fetch the Session again for a fresh one rather
-  than reusing an old link.
+  than reusing an old link. A conversation report's PDF links to the
+  learner's recording, so for someone who can't read that conversation its
+  link is null and `pdf_note` says why. The written report still comes.
 - `goals`: for each conversation in the run that had Goals, which were
   reached, when, and in the learner's own words.
 
@@ -90,7 +92,8 @@ found, or isn't available. Check the id with `list-sessions-tool`.
 `list-conversations-tool {character_id?, creator_id?, status?, search?, organization?, limit?, cursor?}`
 finds Conversations, newest first. `creator_id` is the person who took part
 (their user id). `status` is `active`, `ended` or `failed`. Then
-`get-conversation-tool {id}` returns the `transcript`, `duration`,
+`get-conversation-tool {id}` returns the `transcript` (null, with a
+`transcript_note`, for someone outside the conversation's organization), `duration`,
 `participant_name`, and `goals`: the Goals reached, the ones still on the
 learner's list, and a count of hidden Goals not yet reached. It also returns
 `objectives` and `ended_by` (see "Answers a Character's Objectives collected")
