@@ -70,7 +70,7 @@ Every `list-`, `get-` and `validate-` tool here runs with
    `asset_type` takes `image`, `video`, `audio` or `file`. A 360° video is
    `video` with `video_type` `360_video` (or `180_video` for 180°). Use a
    processed 360° image or video. When nothing fits, follow the `add-assets`
-   skill (`get-skill-tool {name: "add-assets"}`) to generate a panorama,
+   skill (`get-skill-tool {name: "add-assets"}`) to generate a 360° skybox,
    import one from a link, or upload one.
 4. **Add the scenes.**
    `create-scene-tool {experience_id, skybox_asset_id, name, end_time?}`.

@@ -8,22 +8,27 @@ for people who manage the organization.
 Every generate tool takes `organization` and runs with `execute_write_tools`.
 The list, get and status tools run with `execute_read_tools`.
 
-## Generate an image or a 360° backdrop
+## Generate an image, a panorama or a 360° backdrop
 
 `generate-asset-image-tool {organization?, prompt, panorama?, resolution?, aspect?, count?, source_asset_ids?}`
 
-- `panorama: true` makes a 360° image for a scene backdrop. It always
-  renders at 4K, the most expensive tier, and at 2:1, so leave `aspect` out.
+- A panorama is a wide flat image. When someone asks for a panorama, make a
+  flat image at `aspect: "21:9"` and leave `panorama` out. For a panoramic
+  version of an existing image, pass that image in `source_asset_ids` too.
+- `panorama: true` makes a 360° skybox for a scene backdrop, despite its
+  name. Use it only when someone asks for a 360° image, a skybox or a
+  backdrop to stand inside. It always renders at 4K, the most expensive
+  tier, and at 2:1, so leave `aspect` out.
 - A flat image takes `resolution` `1K` (default and cheapest), `2K` or `4K`,
   and `aspect` `1:1` (default), `2:3`, `3:2`, `3:4`, `4:3`, `9:16`, `16:9`
   or `21:9` (ultra-wide).
 - `count` makes 1 to 4 variations, each charged.
 - `source_asset_ids` lists up to 5 library images to base the result on. A
-  panorama takes at most 1.
+  360° skybox takes at most 1.
 
-Tokens are reserved when you call. State the count, the resolution and
-whether it's a panorama, and get a yes. "Not enough tokens" leaves nothing
-behind; tell the person and don't retry.
+Tokens are reserved when you call. State the count, the resolution and the
+shape (including whether it's a 360° skybox), and get a yes. "Not enough
+tokens" leaves nothing behind; tell the person and don't retry.
 
 Then `get-asset-generation-status-tool {ids}` with the returned `ids`, every
 several seconds, until `all_done`. An image is done once it's `processed`,

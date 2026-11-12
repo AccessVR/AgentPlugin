@@ -1,6 +1,6 @@
 ---
 name: add-assets
-description: Get images, 360° panoramas, video, audio and documents into the OrchestrateXR asset library. Covers uploading a file from the chat or computer, importing one from a public link, generating an AI image or a 360° skybox, generating a short AI video from a prompt or an image, generating narration (text-to-speech voiceover audio) from a script, and generating a Replica video from a script. Use when someone needs a scene backdrop, a voiceover or any media file, wants to find an asset, check that it finished processing, share it, see where it is used, or recycle it.
+description: Get images, panoramas, 360° skyboxes, video, audio and documents into the OrchestrateXR asset library. Covers uploading a file from the chat or computer, importing one from a public link, generating an AI image, a panorama or a 360° skybox, generating a short AI video from a prompt or an image, generating narration (text-to-speech voiceover audio) from a script, and generating a Replica video from a script. Use when someone needs a scene backdrop, a voiceover or any media file, wants to find an asset, check that it finished processing, share it, see where it is used, or recycle it.
 metadata:
   requires: authoring:asset
 ---
@@ -42,7 +42,7 @@ tool runs with `execute_write_tools`.
   back as `cursor` for more.
 
 A 360° image is an ordinary `image`. `get-asset-tool {id}` gives its `width`
-and `height`; a 360° panorama is twice as wide as it is tall.
+and `height`; a 360° image is twice as wide as it is tall.
 
 ## Pick a way in
 
@@ -51,7 +51,7 @@ and `height`; a 360° panorama is twice as wide as it is tall.
 | Is at a public web address | Import it from the link. |
 | Is attached to the chat or on the machine you run on, and you can make HTTP requests | Upload it in three steps. |
 | Is attached, but you can't make HTTP requests | Ask for a public link to import, or ask the person to upload it on the Assets screen, then find it with `list-assets-tool`. |
-| Doesn't exist yet: an image or a 360° backdrop | Generate it. |
+| Doesn't exist yet: an image, a panorama or a 360° backdrop | Generate it. |
 | Is a script read aloud: narration or a voiceover | Generate narration. |
 | Is a person speaking a script to camera | Generate a Replica video. |
 
@@ -144,17 +144,19 @@ Experience that uses it. `state_message` gives the reason when there is one.
    asset into the places that used the old one. If it fails a second time,
    offer the person a support ticket instead of retrying again.
 
-## Generate an image, a 360° backdrop, a video, narration or a Replica video
+## Generate an image, a panorama, a 360° backdrop, a video, narration or a Replica video
 
-`generate-asset-image-tool` makes flat images and 360° panoramas for scene
-backdrops. `generate-asset-video-tool` makes a short video from a prompt,
-optionally starting from a library image. `generate-narration-tool` reads a
-script aloud in a Voice and saves it as an audio asset.
-`generate-replica-video-tool` makes a talking-head video of a Replica
-reading a script. All four spend tokens,
-take a while, and are checked with `get-asset-generation-status-tool`, which
-reports done only once the asset is `processed`. Read
-`references/generation.md` before calling any of them.
+`generate-asset-image-tool` makes flat images, including 21:9 panoramas, and
+360° skyboxes for scene backdrops. A panorama is a wide flat image, not a
+360° one: when someone asks for a panorama, or a panoramic version of an
+image, make it at `aspect: "21:9"`. `generate-asset-video-tool` makes a
+short video from a prompt, optionally starting from a library image.
+`generate-narration-tool` reads a script aloud in a Voice and saves it as an
+audio asset. `generate-replica-video-tool` makes a talking-head video of a
+Replica reading a script. All four spend tokens, take a while, and are
+checked with `get-asset-generation-status-tool`, which reports done only
+once the asset is `processed`. Read `references/generation.md` before
+calling any of them.
 
 ## Details, sharing and links
 
