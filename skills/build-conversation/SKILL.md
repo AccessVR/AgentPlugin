@@ -40,6 +40,10 @@ execute_read_tools. Every other tool runs with execute_write_tools.
   collection, apply at once. `references/settings.md` marks which is which.
 - **Links.** Share only URLs a tool returned: `url` to work on a record,
   `share_url` to send it. Never build one from an id.
+- **Someone else's Character or Thread.** When the person's organization
+  subscribes to one rather than owns it, it can't be edited or published, but
+  its organization's own settings can be changed. See the last section of
+  `references/settings.md`.
 - **"Wasn't found, or isn't available."** Check the id with the matching list
   tool. Don't repeat the call.
 

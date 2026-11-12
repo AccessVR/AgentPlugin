@@ -72,6 +72,32 @@ its slot settings wait for `publish-thread-tool`.
 
 The demo settings on `update-thread-tool` are for OrchestrateXR support only.
 
+## A subscribing organization's own settings
+
+When the person's organization subscribes to a Character or Thread that another
+organization owns, `update-character-tool` and `update-thread-tool` refuse it:
+those change the record for every organization using it. What the subscriber
+can change is its own organization's settings, which apply only to its own
+conversations, at once, with no publishing.
+
+`get-character-tool` and `get-thread-tool` return them as
+`your_organization_settings`, each null where the organization uses the
+owner's value. It is null as a whole when the organization owns the record or
+the person can't change these settings. Changing them takes an Org Admin or a
+Training Director.
+
+Set with `update-character-organization-settings-tool {id}` or
+`update-thread-organization-settings-tool {id}` plus only the settings that
+change. Null for a setting goes back to the owner's value.
+
+| Record | Arguments |
+| --- | --- |
+| Character | `replica_id`, `enable_recording`, `conversation_report_type_id`, `max_call_duration`, `survey_url`, `contact_collection_enabled`, `contact_collection_required`, `contact_send_reports`, `contact_webhook_enabled`, `contact_webhook_url` |
+| Thread | `survey_enabled`, `survey_url`, `contact_collection_enabled`, `contact_collection_required`, `contact_send_reports`, `contact_webhook_enabled`, `contact_webhook_url` |
+
+A subscriber's Objectives and extra Goals go through
+`set-character-objectives-tool` and `assign-goals-tool`, as for an owner.
+
 ## Lineup slot settings
 
 Each entry in the `characters` list of `create-thread-tool` or
