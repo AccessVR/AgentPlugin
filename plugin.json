@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "orchestratexr",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "Build and run immersive training in OrchestrateXR from your AI assistant: Experiences, AI Characters and Threads, Courses, Assets, and Guides, with step-by-step skills for each job.",
   "author": {
     "name": "OrchestrateXR",

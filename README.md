@@ -48,7 +48,7 @@ gemini extensions install https://github.com/AccessVR/AgentPlugin
 
 The plugin carries manifests for Codex (`.codex-plugin/`) and Cursor (`.cursor-plugin/`). Add this repository as a plugin marketplace in either app.
 
-The repository is also a plugin in the vendor-neutral [Agent Plugins](https://agent-plugins.org) format, with its manifest in `plugin.json`, so an assistant that reads that format, such as NanoClaw, can install it as it is. Add `https://app.orchestratexr.com/mcp` as an MCP server there too.
+The repository is also a plugin in the vendor-neutral [Agent Plugins](https://agent-plugins.org) format, with its manifest in `plugin.json`, so an assistant that reads that format, such as NanoClaw, can install it as it is. Its `mcp.json` adds the connection to `https://app.orchestratexr.com/mcp` at the same time.
 
 For any other assistant that reads Agent Skills, copy the `skills/` folder into the place it looks, such as `.agents/skills/` or `.github/skills/`. Then add `https://app.orchestratexr.com/mcp` as an MCP server.
 
