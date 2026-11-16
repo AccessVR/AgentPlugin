@@ -40,16 +40,31 @@ the Thread's first; turn the Character's off in that slot with `show_prebrief`.
 
 Links or files handed to the learner during the conversation.
 
-- Add: `add-character-attachment-tool {id, name, type, link?, asset_id?, description?}`.
-  `type` is `link` (pass `link`) or `file` (pass the `asset_id` of an image or
-  file Asset that belongs to the Character's organization; videos are
-  refused, and so is another organization's Asset, even one for sale). To
-  upload a file first, read
-  `get-skill-tool {name: "add-assets"}`.
-- Change: `update-character-attachment-tool {id, attachment_id, name?, link?, asset_id?, description?}`.
+- Add: `add-character-attachment-tool {id, name, type, link?, asset_id?, description?, show_when?}`.
+  `type` is `link` (pass `link`) or `file` (pass the `asset_id` of an image,
+  video or file Asset that belongs to the Character's organization; another
+  organization's Asset is refused, even one for sale). To upload a file
+  first, read `get-skill-tool {name: "add-assets"}`.
+- Change: `update-character-attachment-tool {id, attachment_id, name?, link?, asset_id?, description?, show_when?}`.
   A link can't become a file or the reverse; remove it and add a new one.
 - Remove: `remove-character-attachment-tool {id, attachment_id}`. The Asset
   stays in the library.
+
+### Showing an attachment at the right moment
+
+`show_when` lets the Character show an attachment itself, without the learner
+opening it. Write it as the moment to watch for, with "you" meaning the
+Character: "the learner asks you to show how you'll put in your eye drops".
+Say whose it is when it could be either person's. When that moment comes, the
+Character stops talking, the learner's microphone mutes, and the attachment
+fills the Character's place. A video plays to the end, then the conversation
+carries on. Pass `show_when: null` to stop it.
+
+- Suits a video, an image or a PDF. A link the browser can't show in a page
+  only offers to open in a new tab.
+- Only the web player does this. Ask the human to try the moment in a preview
+  conversation: whether the Character spots it depends on how plainly the
+  moment is described.
 
 Attachment ids come from `get-character-tool`. Attachment changes reach the
 next conversation straight away, with nothing to publish, so confirm each one
