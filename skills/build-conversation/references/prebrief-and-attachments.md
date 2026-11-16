@@ -58,7 +58,8 @@ Character: "the learner asks you to show how you'll put in your eye drops".
 Say whose it is when it could be either person's. When that moment comes, the
 Character stops talking, the learner's microphone mutes, and the attachment
 fills the Character's place. A video plays to the end, then the conversation
-carries on. Pass `show_when: null` to stop it.
+carries on; anything else shows for 30 seconds, unless the learner goes back
+sooner. Pass `show_when: null` to stop it.
 
 - Suits a video, an image or a PDF. A link the browser can't show in a page
   only offers to open in a new tab.
