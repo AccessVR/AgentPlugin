@@ -40,12 +40,12 @@ the Thread's first; turn the Character's off in that slot with `show_prebrief`.
 
 Links or files handed to the learner during the conversation.
 
-- Add: `add-character-attachment-tool {id, name, type, link?, asset_id?, description?, show_when?}`.
+- Add: `add-character-attachment-tool {id, name, type, link?, asset_id?, description?, show_when?, show_for_seconds?}`.
   `type` is `link` (pass `link`) or `file` (pass the `asset_id` of an image,
   video or file Asset that belongs to the Character's organization; another
   organization's Asset is refused, even one for sale). To upload a file
   first, read `get-skill-tool {name: "add-assets"}`.
-- Change: `update-character-attachment-tool {id, attachment_id, name?, link?, asset_id?, description?, show_when?}`.
+- Change: `update-character-attachment-tool {id, attachment_id, name?, link?, asset_id?, description?, show_when?, show_for_seconds?}`.
   A link can't become a file or the reverse; remove it and add a new one.
 - Remove: `remove-character-attachment-tool {id, attachment_id}`. The Asset
   stays in the library.
@@ -56,10 +56,11 @@ Links or files handed to the learner during the conversation.
 opening it. Write it as the moment to watch for, with "you" meaning the
 Character: "the learner asks you to show how you'll put in your eye drops".
 Say whose it is when it could be either person's. When that moment comes, the
-Character stops talking, the learner's microphone mutes, and the attachment
-fills the Character's place. A video plays to the end, then the conversation
-carries on; anything else shows for 30 seconds, unless the learner goes back
-sooner. Pass `show_when: null` to stop it.
+attachment appears beside the Character (over its video on a phone) while the
+conversation carries on, so the Character can talk about it. A video plays
+with its sound off and closes when it ends. Anything else closes after
+`show_for_seconds`: 30 unless set, from 5 to 600, or `null` to keep it up until
+the learner closes it. Pass `show_when: null` to stop the Character showing it.
 
 - Suits a video, an image or a PDF. A link the browser can't show in a page
   only offers to open in a new tab.
