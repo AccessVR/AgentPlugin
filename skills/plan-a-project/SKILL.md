@@ -72,7 +72,11 @@ whole section with `body`.
 - Pass the `version` you read. If someone changed the section since, the
   write is refused: read it again, re-apply your change to what it says now,
   and show the person the new text before trying again.
-- Show the person the new text and get a yes before every write.
+- Show the person the new text and get a yes before rewriting a section that
+  already has text.
+- An empty section, or a new one, you fill as you go from what the person has
+  just told you, then say what you added. A brief that waits for permission
+  stays empty.
 - **Add a section** at the end by leaving out `section` and passing a title:
   `update-project-section-tool {project, title, body}`.
 - `design-training` step 8 says what belongs in each section.
@@ -158,11 +162,18 @@ project's resources.
   `link-project-content-tool {project, action, type, title}` with `action`
   "plan".
 - **Build** it with the guide for that kind of content: `build-experience`,
-  `build-conversation`, `assemble-course` or `add-assets`.
-- **Link** it as a deliverable straight after creating it:
+  `build-conversation`, `assemble-course` or `add-assets`. When someone asks
+  you to build a planned deliverable, that's the go-ahead: build it without
+  asking again, filling gaps from the brief and the project's resources.
+- **Build a planned Experience or Character in one step** by passing
+  `deliverable`, the planned item's id from `get-project-tool`, to
+  `create-experience-tool` or `create-character-tool`. The new content takes
+  the plan's place, so there's nothing left to link.
+- **Link** anything else as a deliverable straight after creating it:
   `link-project-content-tool {project, action, type, id}` with `action`
   "link". `purpose` defaults to "deliverable". Use "reference" for existing
-  content the project draws on rather than produces.
+  content the project draws on rather than produces. Pass `item`, the planned
+  deliverable's id, when the content builds one.
 - `type` is `experience`, `character`, `thread`, `course`, `asset` or `guide`.
   Content has to belong to the project's organization.
 - **Take something off** the project with

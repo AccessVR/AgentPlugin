@@ -90,7 +90,10 @@ Every `list-`, `get-` and `validate-` tool here runs with
 7. **Validate.** `validate-experience-tool {id}`, where `id` is the
    Experience's id. It has no `experience_id` argument.
 8. **Explain the problems** by scene and layer name, then fix them (see
-   below) and validate again until it returns `valid: true`.
+   below) and validate again until it returns `valid: true`. Fix its
+   `warnings` too (a scene that sits on its bare backdrop after its last
+   layer, or a correct answer that's always in the same position) unless
+   the author wants them that way.
 9. **Publish.** Restate the Experience's name, confirm, then
    `publish-experience-tool {id}`. It returns the published version number and
    a `preview_url` for that version. Get the learner link from
