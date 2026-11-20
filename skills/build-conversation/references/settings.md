@@ -26,7 +26,7 @@ Set with `update-character-tool {id}` plus only the fields that change.
 | `visibility` | Who can run it. `private` (the default) is the organization's members only. `unlisted` is anyone with the link, including people without an account. `secret` is a list of email addresses. Only OrchestrateXR support staff can make one `public`. | `private`, `unlisted`, `secret` | at once |
 | `is_active` | Whether the Character can be used at all. | true, false | at once |
 | `replica_id`, `persona_id` | Swap the Replica or the Persona. | ids | on publish |
-| `background_asset_id` | An image Asset shown behind the Replica. Null goes back to the Replica's own backdrop. | image Asset id, or null | on publish |
+| `background_asset_id` | An image Asset shown behind the Replica. Null goes back to the Replica's own backdrop. A Phoenix 4.5 Replica always shows its own backdrop, so set this only on a Character with a Phoenix 4 Replica. | image Asset id, or null | on publish |
 | `conversation_report_type_id` | The Report Type that scores each conversation. Null removes it. | Report Type id, or null | at once |
 | `document_retrieval_strategy` | Trade-off when searching the Character's knowledge. | `speed`, `balanced`, `quality` | on publish |
 | `prebrief_enabled`, `prebriefing_content`, `prebriefing_video_asset_id` | A screen shown before the conversation: HTML content, a video Asset, or both. | true/false, HTML, video Asset id | at once |
