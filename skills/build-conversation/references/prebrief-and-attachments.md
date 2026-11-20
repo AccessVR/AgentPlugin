@@ -40,12 +40,12 @@ the Thread's first; turn the Character's off in that slot with `show_prebrief`.
 
 Links or files handed to the learner during the conversation.
 
-- Add: `add-character-attachment-tool {id, name, type, link?, asset_id?, description?, show_when?, show_for_seconds?}`.
+- Add: `add-character-attachment-tool {id, name, type, link?, asset_id?, description?, show_when?, show_for_seconds?, pauses_conversation?, plays_without_sound?}`.
   `type` is `link` (pass `link`) or `file` (pass the `asset_id` of an image,
   video or file Asset that belongs to the Character's organization; another
   organization's Asset is refused, even one for sale). To upload a file
   first, read `get-skill-tool {name: "add-assets"}`.
-- Change: `update-character-attachment-tool {id, attachment_id, name?, link?, asset_id?, description?, show_when?, show_for_seconds?}`.
+- Change: `update-character-attachment-tool {id, attachment_id, name?, link?, asset_id?, description?, show_when?, show_for_seconds?, pauses_conversation?, plays_without_sound?}`.
   A link can't become a file or the reverse; remove it and add a new one.
 - Remove: `remove-character-attachment-tool {id, attachment_id}`. The Asset
   stays in the library.
@@ -61,6 +61,18 @@ conversation carries on, so the Character can talk about it. A video plays
 with its sound off and closes when it ends. Anything else closes after
 `show_for_seconds`: 30 unless set, from 5 to 600, or `null` to keep it up until
 the learner closes it. Pass `show_when: null` to stop the Character showing it.
+
+`pauses_conversation: true` covers the conversation instead: the Character
+falls silent, the learner's microphone turns off and a video plays with its
+sound, until the attachment closes or the learner goes back. Suits something
+the learner should take in alone, like a narrated demonstration. It's `false`
+unless set.
+
+`plays_without_sound: true` strips a video attachment's sound everywhere the
+learner sees it, shown by the Character or opened from the sidebar, even when
+it pauses the conversation, and the learner can't turn it back on. Use it for
+a generated video whose model added a soundtrack that's no good. It does
+nothing for an image, a PDF or a link, and it's `false` unless set.
 
 - Suits a video, an image or a PDF. A link the browser can't show in a page
   only offers to open in a new tab.
