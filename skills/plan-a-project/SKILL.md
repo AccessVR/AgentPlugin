@@ -61,6 +61,15 @@ the resources and recent activity.
   `custom`), not its title. Authors can rename sections.
 - Read the project again before any write if time has passed. Other authors
   work in it too.
+- `chats` lists the project's chats with Paloma, newest first. Read one with
+  `get-project-chat-tool {project, chat, limit?, before?}` before picking up
+  work someone started there, or to find why the brief says what it does.
+  Each change Paloma made in recent activity carries the `conversation_id` of
+  the chat it came from, which is the `chat` to pass.
+- A chat comes back a page at a time, latest messages first: 20 unless you
+  pass `limit` (up to 100). The recent end is usually enough. When someone
+  asks for the whole chat, or for something said early on, pass `next_before`
+  as `before` until it comes back null.
 
 ## 3. Write the brief
 
